@@ -1,33 +1,32 @@
 *{
-
     padding: 0;
     margin: 0;
     transition: .4s ease-in-out; /* плавность переходов для всех элементов страницы*/
 }
 @font-face {
     font-family: 'Roboto-BlackItalic';
-    src: url('fonts/Roboto/Roboto-BlackItalic.eot');
-    src: url('fonts/Roboto/Roboto-BlackItalic.eot?#iefix') format('embedded-opentype'),
-    url('fonts/Roboto/Roboto-BlackItalic.woff') format('woff'),
-    url('fonts/Roboto/Roboto-BlackItalic.ttf') format('truetype');
+    src: url('../fonts/Roboto/Roboto-BlackItalic.eot');
+    src: url('../fonts/Roboto/Roboto-BlackItalic.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Roboto/Roboto-BlackItalic.woff') format('woff'),
+    url('../fonts/Roboto/Roboto-BlackItalic.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     }
 @font-face {
         font-family: 'Roboto Medium';
-        src: url('fonts/Roboto/Roboto-Medium.eot');
-        src: url('fonts/Roboto/Roboto-Medium.eot?#iefix') format('embedded-opentype'),
-        url('fonts/Roboto/Roboto-Medium.woff') format('woff'),
-        url('fonts/Roboto/Roboto-Medium.ttf') format('truetype');
+        src: url('../fonts/Roboto/Roboto-Medium.eot');
+        src: url('../fonts/Roboto/Roboto-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Roboto/Roboto-Medium.woff') format('woff'),
+        url('../fonts/Roboto/Roboto-Medium.ttf') format('truetype');
         font-weight: normal;
         font-style: normal;
         }
 @font-face {
     font-family: 'Roboto Regular';
-    src: url('fonts/Roboto/Roboto-Regular.eot');
-    src: url('fonts/Roboto/Roboto-Regular.eot?#iefix') format('embedded-opentype'),
-    url('fonts/Roboto/Roboto-Regular.woff') format('woff'),
-    url('fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+    src: url('../fonts/Roboto/Roboto-Regular.eot');
+    src: url('../fonts/Roboto/Roboto-Regular.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Roboto/Roboto-Regular.woff') format('woff'),
+    url('../fonts/Roboto/Roboto-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     }
@@ -195,7 +194,7 @@ div#carouselExampleIndicators{
 .grid1{
     background-position: bottom right;
     background-size: 440px 440px; 
-    background-image: url(Images/Depositphotos_1525631_m-2015-640x640.jpg);
+    background-image: url(../Images/Depositphotos_1525631_m-2015-640x640.jpg);
     background-repeat: no-repeat;
     display: grid;
     grid-template-columns: repeat(4,1fr);
@@ -338,5 +337,7 @@ div#carouselExampleIndicators{
    .mgmt{
        margin-top:4em;
    }
-   
+   .font-rec{
+       font-size: 2em
+   }
   
