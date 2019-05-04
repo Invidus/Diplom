@@ -1,6 +1,19 @@
 .field-set{
-    border: 1px solid gray !important;
+    border-bottom: 1px solid gray !important;
     padding: 10px;
     margin: 10px;
     margin-left: 0px;
+    border-radius:8px;
+	box-shadow:2.5px 3.5px 8px 1.5px #d6d6d6;
+    width: 100%;
+    /* border-radius: 5px ;
+    -webkit-border-radius: 5px ;
+    -moz-border-radius: 5px ;
+    -ms-border-radius: 5px ;
+    -o-border-radius: 5px ; */
+}
+.legend{
+    width: 100%;
+    float:left;
+	margin-top:-20px;
 }

@@ -19,7 +19,17 @@
         <?php
         include('nav.php');
         ?>
-
+        <form class = "input-group">
+        <fieldset class = "field-set">
+                <legend class = "legend">Пол</legend>
+                <label class="radio-inline">
+                    <input type="radio" name="optradio" id="M" onChange="calculateIndexM()" />Мужчина
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="optradio" id="W" onChange="calculateIndexM()" />Женщина
+                </label>
+            </fieldset>
+        </form>
         <form class="input-group">
             <fieldset class = "field-set">
                 <legend>Уровень физической нагрузки</legend>
@@ -30,15 +40,6 @@
                     <option value="4">Ежедневные тренировки </option>
                     <option value="5">Снижение веса </option>
                 </select>
-            </fieldset>
-            <fieldset class = "field-set">
-                <legend>Пол</legend>
-                <label class="radio-inline">
-                    <input type="radio" name="optradio" id="M" onChange="calculateIndexM()" />Мужчина
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" name="optradio" id="W" onChange="calculateIndexM()" />Женщина
-                </label>
             </fieldset>
         </form>
         <form>
