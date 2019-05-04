@@ -13,7 +13,7 @@ function calculateIndexM() { //Расчет индекса массы тела
         var selection = document.getElementById('inputGroupSelect04').selectedIndex;
         switch(selection){
             case 0:
-            var cal = (655 + 9.6* weight + 1.8 * height - 4.7 * age)*0.9;
+            var cal = (655 + 9.6* weight + 1.8 * height - 4.7 * age);
             var c = document.getElementById("Cal");
             c.innerText = cal.toFixed(1);
             break;
