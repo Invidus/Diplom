@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <body>
     <Header>
         <nav class="navbar navbar-expand-lg navbar-light ">
@@ -8,6 +9,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <form method = "POST">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="index.php">Главная </a>
@@ -19,21 +21,31 @@
                         <a class="nav-link" href="news.php">Новости</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Поддержка</a>
+                        <a class="nav-link" href="support.php">Поддержка</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contacts">Контакты</a>
                     </li>
+                    <li class="nav-item">
+                    </li>
+                    <?
+                        require("exit.php");
+                    ?>
+
                 </ul>
+                </form>
                 <div class="box">
-                    <div class="container-4">
-                        <input type="search" id="search" placeholder="Поиск..." />
-                        <button class="icon"><i class="fa fa-search"></i></button>
-                    </div>
+
+
+
+                    <!-- <div class="container-4">
+                        <a href = "">Регистрация</a>/<a href = "">Вход</a>
+                    </div> -->
                 </div>
             </div>
         </nav>
     </Header>
+    <script src = "exit.js"></script>
 </body>
 
-</html> 
+</html>

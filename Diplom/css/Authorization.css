@@ -1,0 +1,139 @@
+*{
+    padding: 0;
+    margin: 0;
+    transition: .1s ease-in-out; /* плавность переходов для всех элементов страницы*/
+}
+@font-face {
+    font-family: 'Roboto-BlackItalic';
+    src: url('../fonts/Roboto/Roboto-BlackItalic.eot');
+    src: url('../fonts/Roboto/Roboto-BlackItalic.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Roboto/Roboto-BlackItalic.woff') format('woff'),
+    url('../fonts/Roboto/Roboto-BlackItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    }
+@font-face {
+        font-family: 'Roboto Medium';
+        src: url('../fonts/Roboto/Roboto-Medium.eot');
+        src: url('../fonts/Roboto/Roboto-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Roboto/Roboto-Medium.woff') format('woff'),
+        url('../fonts/Roboto/Roboto-Medium.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+        }
+@font-face {
+    font-family: 'Roboto Regular';
+    src: url('../fonts/Roboto/Roboto-Regular.eot');
+    src: url('../fonts/Roboto/Roboto-Regular.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Roboto/Roboto-Regular.woff') format('woff'),
+    url('../fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    }
+h1, h2, h3, h4 {
+    font-family: 'Roboto-BlackItalic';}
+body,p,table,a{
+    font-family: 'Roboto Regular';
+    /* overflow-y:hidden; */
+    }
+
+.registration-inputs{
+    /* margin-top: 5% !important;
+    margin-bottom: 5% !important; */
+    background-color: white;
+    border: 1px solid gray;
+    border-radius:10px;
+    box-shadow:0 0 3px #353b48;
+    display: grid;
+    margin: 10px;
+    margin-left: 20%;
+    margin-right: 20%;
+    grid-template-columns: 1fr;
+    grid-gap: 2px;
+    align-items: center;
+    text-align:left;
+    padding: 10px;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    -ms-border-radius:10px;
+    -o-border-radius:10px;
+    opacity: 0.95;
+   
+}
+body{
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+.auth-inputs{
+    /* height: 280px; */
+    /* margin-top: 5% !important;
+    margin-bottom: 5% !important; */
+    background-color: white;
+    border: 1px solid gray;
+    border-radius:10px;
+    box-shadow:0 0 3px #353b48;
+    height: 280px;
+    width:200px;
+    display: grid;
+    margin: 10px;
+    margin-left: 20%;
+    margin-right: 20%;
+    grid-template-columns: 1fr;
+    grid-gap: 2px;
+    align-items: center;
+    text-align:left;
+    padding: 10px;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    -ms-border-radius:10px;
+    -o-border-radius:10px;
+    opacity: 0.95;
+}
+.reg-lable{
+    text-align: center !important; 
+}
+.btn-primary{
+    background-color: white !important;
+    border-color: #353b48 !important;
+    color: #353b48 !important;
+    margin-top: 5px;
+    width: 100%;
+}
+.btn-primary:hover{
+    background-color: #00ff68 !important;
+    color: white !important;
+}
+.auth-link:hover{
+    color:#00ff68;
+}
+.link-center{
+    text-align: center;
+}
+.cancel{
+    position: absolute;
+    text-decoration: none !important;
+    color: gray;
+}
+.cancel:hover{
+    color:#00ff68;
+}
+.auth-link{
+    text-align: center;
+    color: #353b48;
+    text-decoration: none !important;
+}
+.textarea-support{
+    width: 100%;
+    margin-top: 10px;
+}
+body{
+    background-image: url("../Images/4--514238-Green\ grass\ growing\ time-lapse\ -\ isolated\ on\ white\ background.jpg");
+    background-position: top center;
+    -webkit-background-size: cover;
+    position: relative;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 720px;
+
+}

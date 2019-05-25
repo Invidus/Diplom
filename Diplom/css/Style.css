@@ -42,7 +42,7 @@ body,p,table,a{
 .nav-item a:hover{color:white;}
 .nav-link{
     font-size: 1.2em;
-    padding-top: 1em;
+    /* padding-top: 1em; */
 
     }
 li{
@@ -340,4 +340,14 @@ div#carouselExampleIndicators{
    .font-rec{
        font-size: 2em
    }
+  .reg-link{
+      border: 1px solid #65737e;
+        border-radius: 5px;
+     
+  }
+  .reg-link:hover{
+      transition-timing-function: ease-in;
+      transition-duration: .7s;
+      background: #00ff68 !important;
+  }
   
