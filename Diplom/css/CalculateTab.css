@@ -20,7 +20,9 @@
 .product-name{
     width: 100%;
 }
-
+.product-grid1{
+    grid-template-columns: 1fr 2fr 2fr;
+}
 .product-grid{
     display: grid;
     grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr 1fr;

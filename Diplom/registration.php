@@ -101,7 +101,6 @@
                     // Внесение данных в БД
                     $query = "Insert into `users` values('$fnameBD','$lnameBD','$surnameBD','$emailBD','$loginBD','$passBD','0')";
                     $result = mysqli_query($link, $query) or die("Error sql" . mysql_error($link));
-                    //  $result = $mysqli -> query("Insert into".$db_table."(fname,lname,login,pass,email,surname) values ($fname,$lname,$login,$pass,$email,$surname)");
                     if ($result) {
                         echo ("<script>alert('Вы успешно зарегистровались !');</script>");
                         header('Refresh: 0.3;url = http://localhost:85/Diplom/auth.php');

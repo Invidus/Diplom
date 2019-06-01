@@ -69,7 +69,6 @@
                     // Внесение данных в БД
                     $query = "Insert into `support` values('$fnameBD','$emailBD','$msgBD')";
                     $result = mysqli_query($link, $query) or die("Error sql" . mysql_error($link));
-                    //  $result = $mysqli -> query("Insert into".$db_table."(fname,msg,login,pass,email,surname) values ($fname,$msg,$login,$pass,$email,$surname)");
                     if ($result) {
                         echo ("<script>alert('Ваше письмо было отправлено администации сайта.');</script>");
                         header('Refresh: 0.3;url = http://localhost:85/Diplom/index.php');

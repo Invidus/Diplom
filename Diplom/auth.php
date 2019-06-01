@@ -34,9 +34,7 @@
 <?php 
 
     if (isset($_POST['login']) && isset($_POST['pass'])) {
-
         require("connect.php");
-
         $login = $_POST['login'];
         $pass = $_POST['pass'];
         $query = "select * from `users` where  login = '$login' and password = '$pass';";

@@ -350,4 +350,13 @@ div#carouselExampleIndicators{
       transition-duration: .7s;
       background: #00ff68 !important;
   }
-  
+  .lkgrid{
+      display:grid;
+      grid-template-columns: repeat(2,1fr);
+    grid-gap: 2em;
+    justify-items: center;
+    text-align: left;
+    grid-auto-rows: auto;
+
+    grid-template-areas: "main main";
+  }
