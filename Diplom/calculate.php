@@ -6,12 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Calculations</title>
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/CalculateTab.css">
-    <link rel="stylesheet" href="./css/Style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
 </head>
 
 <body>
@@ -23,7 +20,7 @@
             <fieldset class="field-set">
                 <legend>Пол</legend>
                 <label class="radio-inline">
-                    <input type="radio" name="optradio" id="M" onChange="calculateIndexM()" />Мужчина
+                    <input type="radio" name="optradio" id="M" onChange="calculateIndexM()" >Мужчина
                 </label>
                 <label class="radio-inline">
                     <input type="radio" name="optradio" id="W" onChange="calculateIndexM()" />Женщина
@@ -39,6 +36,7 @@
                     <option value="3">Средние физ.нагрузки (3-5 раз в неделю)</option>
                     <option value="4">Ежедневные тренировки </option>
                     <option value="5">Снижение веса </option>
+                    <option value="6">Набор мышечной массы </option>
                 </select>
             </fieldset>
         </form>
@@ -46,18 +44,22 @@
         <form class="input-group">
             <fieldset class="field-set">
                 <legend>Характеристики</legend>
-
-                <input  type="text" name="height" id="height" onChange="calculateIndexM()" placeholder="Рост, см" />
-                <input type="text" name="weight" id="weight" onChange="calculateIndexM()" placeholder="Вес, кг" />
-                <input type="text" name="age" id="age" onChange="calculateIndexM()" placeholder="Возраст" />
+                <label for="height">Рост</label>
+                <input  type="text" class="input-fields form-control" name="height" id="height" onChange="calculateIndexM()" placeholder="Рост, см" value = "175"/>
+                <input type="text" class="input-fields form-control" name="weight" id="weight" onChange="calculateIndexM()" placeholder="Вес, кг" value = "75"/>
+                <input type="text" class="input-fields form-control" name="age" id="age" onChange="calculateIndexM()" placeholder="Возраст" value = "21"/>
             </fieldset>
         </form>
         <form class="input-group">
             <fieldset class="field-set">
                 <legend>Результат</legend>
-                Индекс массы тела <label id="indexM"> 0.0</label><br />
-                Суточная норма потребления калорий <label id="Cal"> 0.0</label><br />
-                Нормальный вес <label id="normalW"> 0.0</label><br />
+                <h6 id = "fillFilds"><b>Заполните все поля, чтобы получить результат</b></h6>
+                Индекс массы тела: <label id="indexM"> 0.0</label><br />
+                Суточная норма потребления калорий, кКал: <label id="Cal"> 0.0</label><br />
+                Нормальный вес, кг: <label id="normalW"> 0.0</label><br />
+                Белки, грамм: <label id="normalP"> 0.0</label><br />
+                Углеводы, грамм: <label id="normalC"> 0.0</label><br />
+                Жиры, грамм: <label id="normalF"> 0.0</label><br />
             </fieldset>
         </form>
         <form class="input-group">
@@ -65,8 +67,8 @@
                 <legend>Счетчик потреблённых калорий (завтрак)</legend>
                 <div class="counter-block">
                     <div class="product-grid">
-                        <div><label for="ref" class="input-fields">Название продукта</label> <input class="input-fields form-control" id='ref' type="text" name="referal" placeholder="Начните вводить" /></div>
-                        <div><label for="Gramm" class="input-fields">Вес, грамм</label> <input class="input-fields form-control" id="Gramm" type="text" value="100" /></div>
+                        <div><label for="ref" class="input-fields">Название продукта</label> <input autocomplete="off" class="input-fields form-control" id='ref' type="text" name="referal" placeholder="Начните вводить" /></div>
+                        <div><label for="Gramm" class="input-fields">Вес, грамм</label> <input autocomplete="off" class="input-fields form-control" id="Gramm" type="text" value="100" /></div>
                         <div><label for="Protein" class="input-fields">Белков, грамм</label> <input class="input-fields form-control" id="Protein" type="text" disabled /></div>
                         <div><label for="Fat" class="input-fields">Жиров, грамм</label> <input class="input-fields form-control" id="Fat" type="text" disabled /></div>
                         <div><label for="Carbohydrates" class="input-fields">Углеводов, грамм</label> <input class="input-fields form-control" id="Carbohydrates" type="text" disabled /></div>
@@ -103,8 +105,8 @@
                 <legend>Счетчик потреблённых калорий (Обед)</legend>
                 <div class="counter-block">
                     <div class="product-grid">
-                        <div><label for="ref1" class="input-fields">Название продукта</label> <input class="input-fields form-control" id='ref1' type="text" name="referal1" placeholder="Начните вводить" /></div>
-                        <div><label for="Gramm1" class="input-fields">Вес, грамм</label> <input class="input-fields form-control" id="Gramm1" type="text" value="100" /></div>
+                        <div><label for="ref1" class="input-fields">Название продукта</label> <input autocomplete="off" class="input-fields form-control" id='ref1' type="text" name="referal1" placeholder="Начните вводить" /></div>
+                        <div><label for="Gramm1" class="input-fields">Вес, грамм</label> <input autocomplete="off" class="input-fields form-control" id="Gramm1" type="text" value="100" /></div>
                         <div><label for="Protein1" class="input-fields">Белков, грамм</label> <input class="input-fields form-control" id="Protein1" type="text" disabled /></div>
                         <div><label for="Fat1" class="input-fields">Жиров, грамм</label> <input class="input-fields form-control" id="Fat1" type="text" disabled /></div>
                         <div><label for="Carbohydrates1" class="input-fields">Углеводов, грамм</label> <input class="input-fields form-control" id="Carbohydrates1" type="text" disabled /></div>
@@ -141,8 +143,8 @@
                 <legend>Счетчик потреблённых калорий (Ужин)</legend>
                 <div class="counter-block">
                     <div class="product-grid">
-                        <div><label for="ref2" class="input-fields">Название продукта</label> <input class="input-fields form-control" id='ref2' type="text" name="referal1" placeholder="Начните вводить" /></div>
-                        <div><label for="Gramm2" class="input-fields">Вес, грамм</label> <input class="input-fields form-control" id="Gramm2" type="text" value="100" /></div>
+                        <div><label for="ref2" class="input-fields">Название продукта</label> <input autocomplete="off" class="input-fields form-control" id='ref2' type="text" name="referal1" placeholder="Начните вводить" /></div>
+                        <div><label for="Gramm2" class="input-fields">Вес, грамм</label> <input autocomplete="off" class="input-fields form-control" id="Gramm2" type="text" value="100" /></div>
                         <div><label for="Protein2" class="input-fields">Белков, грамм</label> <input class="input-fields form-control" id="Protein2" type="text" disabled /></div>
                         <div><label for="Fat2" class="input-fields">Жиров, грамм</label> <input class="input-fields form-control" id="Fat2" type="text" disabled /></div>
                         <div><label for="Carbohydrates2" class="input-fields">Углеводов, грамм</label> <input class="input-fields form-control" id="Carbohydrates2" type="text" disabled /></div>
