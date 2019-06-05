@@ -73,7 +73,7 @@
     // Проверка на незаполненные поля
     if (
         !empty($fname) && !empty($lname) && !empty($login) && !empty($pass) &&
-         !empty($surname)
+         !empty($surname) && !empty($rpass) && !empty($email)
     ) {
         if ($pass == $rpass) {
             if (
@@ -87,7 +87,8 @@
                 $fnameBD = htmlentities(mysqli_real_escape_string($link, $_POST['fname']));
                 $lnameBD = htmlentities(mysqli_real_escape_string($link, $_POST['lname']));
                 $loginBD = htmlentities(mysqli_real_escape_string($link, $_POST['login']));
-                $passBD = htmlentities(mysqli_real_escape_string($link, $_POST['pass']));
+                
+                $passBD = password_hash(htmlentities(mysqli_real_escape_string($link, $_POST['pass'])),PASSWORD_DEFAULT);
                 $emailBD = htmlentities(mysqli_real_escape_string($link, $_POST['email']));
                 $surnameBD = htmlentities(mysqli_real_escape_string($link, $_POST['surname']));
 
@@ -101,6 +102,7 @@
                     // Внесение данных в БД
                     $query = "Insert into `users` values('$fnameBD','$lnameBD','$surnameBD','$emailBD','$loginBD','$passBD','0')";
                     $result = mysqli_query($link, $query) or die("Error sql" . mysql_error($link));
+                    // $queryMsg = "Insert into 'support' values('','','','0')"
                     if ($result) {
                         echo ("<script>alert('Вы успешно зарегистровались !');</script>");
                         header('Refresh: 0.3;url = http://localhost:85/Diplom/auth.php');

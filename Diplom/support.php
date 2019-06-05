@@ -22,7 +22,7 @@
             <input class="form-control" id="fname" name="fname" type="text" />
             <label for="email">E-mail</label>
             <input class="form-control" id="email" name="email" type="text" />
-            <textarea class = "textarea-support" name="msg" id="msg" cols="30" rows="7" placeholder="Опишите вашу проблему"></textarea>
+            <textarea class = "textarea-support form-control" name="msg" id="msg" cols="40" rows="10" placeholder="Опишите вашу проблему"></textarea>
             <button type="submit" class="btn btn-primary">Отправить письмо</button>
 
         </form>

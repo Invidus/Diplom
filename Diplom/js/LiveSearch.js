@@ -170,6 +170,10 @@ var carbh2 = 0;
 var cal = 0;
 var cal1 = 0;
 var cal2 = 0;
+var prot4 = 0;
+var fat4=0;
+var carbh4 = 0;
+var cal4 = 0;
 var normal = "норма";
 var calRes = 0;
 var diffrnt = $("#Cal").val() / $("#result-cal").text();
@@ -177,41 +181,50 @@ function itog() {
     if ($("#height").val() != ""
         && $("#weight").val() != "" && $("#age").val() != "") {
         $(".result_count3").removeAttr("hidden");
-        $("#result-protein3").text("Белков, грамм: " + parseFloat(prot + prot1 + prot2));
-        $("#result-fat3").text("Жиров, грамм: " + parseFloat(fat + fat1 + fat2));
-        $("#result-carbohydrates3").text("Углеводов, грамм: " + parseFloat(carbh + carbh1 + carbh2));
-        $("#result-cal3").text("Калорий, кКал: " + parseFloat(cal + cal1 + cal2));
-        calRes = cal + cal1 + cal2;
+        alert(prot1+prot2+prot4 + "fg" +  $("#normalP").text() );
+        $("#result-protein3").text("Белков, грамм: " + parseFloat(prot4 + prot1 + prot2) 
+        + ", что составляет "+ Math.round(parseFloat((prot4 + prot1 + prot2) / $("#normalP").text()) * 100)
+        +" % от суточной нормы в " + $("#normalP").text()+" грамм");
+        $("#result-fat3").text("Жиров, грамм: " + parseFloat(fat4 + fat1 + fat2)+ ", что составляет "
+        + Math.round(parseFloat((fat4 + fat1 + fat2) / $("#normalF").text()) * 100)
+        +" % от суточной нормы в " + $("#normalF").text()+" грамм");
+        $("#result-carbohydrates3").text("Углеводов, грамм: " + parseFloat(carbh4 + carbh1 + carbh2)
+        + ", что составляет "
+        + Math.round(parseFloat((carbh4 + carbh1 + carbh2) / $("#normalC").text()) * 100)
+        +" % от суточной нормы в " + $("#normalC").text()+" грамм");
+        $("#result-cal3").text("Калорий, кКал: " + parseFloat(cal4 + cal1 + cal2));
+        calRes = cal4 + cal1 + cal2;
         $("#result-ans3").text("За сегодня вы употребили: "
             + Math.round(parseFloat(calRes / $("#Cal").text()) * 100)
             + "% калорий от суточной нормы (" + calRes + " кКал из " + $("#Cal").text() + " кКал)");
     }
     else {$(".result_count3").removeAttr("hidden");
-    $("#result-protein3").text("Белков, грамм: " + parseFloat(prot + prot1 + prot2));
-        $("#result-fat3").text("Жиров, грамм: " + parseFloat(fat + fat1 + fat2));
-        $("#result-carbohydrates3").text("Углеводов, грамм: " + parseFloat(carbh + carbh1 + carbh2));
-        $("#result-cal3").text("Калорий, кКал: " + parseFloat(cal + cal1 + cal2));
-        calRes = cal + cal1 + cal2;
+    $("#result-protein3").text("Белков, грамм: " + parseFloat(prot4 + prot1 + prot2));
+        $("#result-fat3").text("Жиров, грамм: " + parseFloat(fat4 + fat1 + fat2));
+        $("#result-carbohydrates3").text("Углеводов, грамм: " + parseFloat(carbh4 + carbh1 + carbh2));
+        $("#result-cal3").text("Калорий, кКал: " + parseFloat(cal4 + cal1 + cal2));
+        calRes = cal4 + cal1 + cal2;
          $("#result-ans3").text("Заполните все данные, чтобы получить полную статистику"); }
 }
+
 // завтрак
 $("#addProductButton").on("click", function () {
-
+    
     if ($('#ref').val() == "") { alert('Введите данные') } else {
         $(".toHide").css({ "display": "block" });
         if ($("#height").val() != ""
             && $("#weight").val() != "" && $("#age").val() != "") {
-            prot += parseFloat($("#Protein").val());
-            fat += parseFloat($("#Fat").val());
-            carbh += parseFloat($("#Carbohydrates").val());
-            cal += parseFloat($("#Calories").val());
-            if (parseFloat($("#Cal").text()) * 0.3 > cal &&
-                parseFloat($("#Cal").text()) * 0.2 < cal) {
+            prot4 += parseFloat($("#Protein").val());
+            fat4 += parseFloat($("#Fat").val());
+            carbh4 += parseFloat($("#Carbohydrates").val());
+            cal4 += parseFloat($("#Calories").val());
+            if (parseFloat($("#Cal").text()) * 0.3 > cal4 &&
+                parseFloat($("#Cal").text()) * 0.2 < cal4) {
                 normal = "Калорийность вашего завтрака достаточная и составляет "
-                    + Math.round(cal / parseFloat($("#Cal").text()) * 100) + " % от суточной нормы потребления калорий";
+                    + Math.round(cal4 / parseFloat($("#Cal").text()) * 100) + " % от суточной нормы потребления калорий";
             } else {
                 normal = "Вам необходимо изменить количество потребляемых калорий, 20%-30% суточной нормы для завтрака, вы потребляете: "
-                    + (cal / parseFloat($("#Cal").text()) * 100).toFixed(1) + " % от суточной нормы потребления калорий";
+                    + (cal4 / parseFloat($("#Cal").text()) * 100).toFixed(1) + " % от суточной нормы потребления калорий";
             }
         } else { normal = "Введите все данные, чтобы получить полную статистику!!!" }
         $('#ref').clone(true).appendTo(".table_result").prop('disabled', true);
@@ -221,10 +234,10 @@ $("#addProductButton").on("click", function () {
         $("#Carbohydrates").clone(true).appendTo(".table_result");
         $("#Calories").clone(true).appendTo(".table_result");
 
-        $("#result-protein").text("Белков, грамм: " + prot);
-        $("#result-fat").text("Жиров, грамм: " + fat);
-        $("#result-carbohydrates").text("Углеводов, грамм: " + carbh);
-        $("#result-cal").text("Калорий, кКал: " + cal);
+        $("#result-protein").text("Белков, грамм: " + prot4);
+        $("#result-fat").text("Жиров, грамм: " + fat4);
+        $("#result-carbohydrates").text("Углеводов, грамм: " + carbh4);
+        $("#result-cal").text("Калорий, кКал: " + cal4);
         $("#result-ans").text(normal);
         $(".result_count").removeAttr("hidden");
         itog();

@@ -44,10 +44,15 @@
         <form class="input-group">
             <fieldset class="field-set">
                 <legend>Характеристики</legend>
+                
+                <div class = "chrsts-grid">
                 <label for="height">Рост</label>
+                <label for="weight">Вес</label>
+                <label for="age">Возраст</label>
                 <input  type="text" class="input-fields form-control" name="height" id="height" onChange="calculateIndexM()" placeholder="Рост, см" value = "175"/>
                 <input type="text" class="input-fields form-control" name="weight" id="weight" onChange="calculateIndexM()" placeholder="Вес, кг" value = "75"/>
                 <input type="text" class="input-fields form-control" name="age" id="age" onChange="calculateIndexM()" placeholder="Возраст" value = "21"/>
+                </div>
             </fieldset>
         </form>
         <form class="input-group">
@@ -118,7 +123,7 @@
                 <br><br>
                 <h6 class="toHide">Список потребленных продуктов</h6>
                 <ul class="table_result1"></ul>
-                <h6 class="toHide">Итого за завтрак</h6>
+                <h6 class="toHide">Итого за обед</h6>
                 <div class="result_count1" hidden>
                     <label id="result-protein1"></label><br>
                     <label id="result-fat1"></label><br>
@@ -156,7 +161,7 @@
                 <br><br>
                 <h6 class="toHide">Список потребленных продуктов</h6>
                 <ul class="table_result2"></ul>
-                <h6 class="toHide">Итого за завтрак</h6>
+                <h6 class="toHide">Итого за ужин</h6>
                 <div class="result_count2" hidden>
                     <label id="result-protein2"></label><br>
                     <label id="result-fat2"></label><br>

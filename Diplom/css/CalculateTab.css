@@ -46,7 +46,10 @@
     display:none;
 }
 
-
+.chrsts-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
 .search_result li{
     list-style: none;
     padding: 5px 10px;
