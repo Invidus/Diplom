@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,17 +14,18 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/Authorization.css">
 </head>
+
 <body>
-<div class="registration-inputs">
-        <form method="POST" action="support.php" >
-            <h6 ><a class = "cancel" href = "index.php"><i><- Назад</i></a></h6>
-            <h4 class="reg-lable"><i>Поддержка</i></h4>
-            <label for="fname">Имя</label>
-            <input class="form-control" id="fname" name="fname" type="text" />
-            <label for="email">E-mail</label>
-            <input class="form-control" id="email" name="email" type="text" />
-            <textarea class = "textarea-support form-control" name="msg" id="msg" cols="40" rows="10" placeholder="Опишите вашу проблему"></textarea>
-            <button type="submit" class="btn btn-primary">Отправить письмо</button>
+    <div class="registration-inputs">
+        <form method="POST" action="support.php">
+            <h6><a class="cancel" href="index.php"><i>
+                        <- Назад</i> </a> </h6> <h4 class="reg-lable"><i>Поддержка</i></h4>
+                            <label for="fname">Имя</label>
+                            <input class="form-control" id="fname" name="fname" type="text" />
+                            <label for="email">E-mail</label>
+                            <input class="form-control" id="email" name="email" type="text" />
+                            <textarea class="textarea-support form-control" name="msg" id="msg" cols="40" rows="10" placeholder="Опишите вашу проблему"></textarea>
+                            <button type="submit" class="btn btn-primary">Отправить письмо</button>
 
         </form>
     </div>
@@ -53,35 +55,35 @@
     if (
         !empty($fname) && !empty($msg) && !empty($email)
     ) {
-        
-            if (
-                check_length($fname, 2, 25) && check_length($msg, 2, 250) &&
-                 check_length($email, 2, 80) 
-                
-            ) {
 
-                require("connect.php");
+        if (
+            check_length($fname, 2, 25) && check_length($msg, 2, 250) &&
+            check_length($email, 2, 80)
 
-                $fnameBD = htmlentities(mysqli_real_escape_string($link, $_POST['fname']));
-                $msgBD = htmlentities(mysqli_real_escape_string($link, $_POST['msg']));
-                $emailBD = htmlentities(mysqli_real_escape_string($link, $_POST['email']));
+        ) {
 
-                    // Внесение данных в БД
-                    $query = "Insert into `support` values('$fnameBD','$emailBD','$msgBD')";
-                    $result = mysqli_query($link, $query) or die("Error sql" . mysql_error($link));
-                    if ($result) {
-                        echo ("<script>alert('Ваше письмо было отправлено администации сайта.');</script>");
-                        header('Refresh: 0.3;url = http://localhost:85/Diplom/index.php');
-                    }
-                    mysqli_close($link);
+            require("connect.php");
 
-                    // Внесение данных в БД
-                
-            } else {
-                echo ("<script>alert('Введена неверная длина одного из полей!');</script>");
+            $fnameBD = htmlentities(mysqli_real_escape_string($link, $_POST['fname']));
+            $msgBD = htmlentities(mysqli_real_escape_string($link, $_POST['msg']));
+            $emailBD = htmlentities(mysqli_real_escape_string($link, $_POST['email']));
+
+            // Внесение данных в БД
+            $query = "Update `support` set msg = '$msgBD' where name = '$fnameBD'  and email = '$emailBD'";
+            $result = mysqli_query($link, $query) or die("Error sql" . mysql_error($link));
+            if ($result) {
+                echo ("<script>alert('Ваше письмо было отправлено администации сайта.');</script>");
+                header('Refresh: 0.3;url = http://localhost:85/Diplom/index.php');
             }
+            mysqli_close($link);
 
+            // Внесение данных в БД
+
+        } else {
+            echo ("<script>alert('Введена неверная длина одного из полей!');</script>");
+        }
     }
     ?>
 </body>
+
 </html>

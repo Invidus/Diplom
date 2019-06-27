@@ -65,6 +65,9 @@ body{
     justify-content: center;
     align-items: center;
 }
+/* .height{
+    height: 380px !important;
+} */
 .auth-inputs{
     /* height: 280px; */
     /* margin-top: 5% !important;
@@ -73,14 +76,13 @@ body{
     border: 1px solid gray;
     border-radius:10px;
     box-shadow:0 0 3px #353b48;
-    height: 280px;
+    height: auto;
     width:200px;
-    display: grid;
+    display: block;
     margin: 10px;
     margin-left: 20%;
     margin-right: 20%;
-    grid-template-columns: 1fr;
-    grid-gap: 2px;
+
     align-items: center;
     text-align:left;
     padding: 10px;
@@ -122,6 +124,11 @@ body{
     text-align: center;
     color: #353b48;
     text-decoration: none !important;
+    font-size: 0.9em;
+}
+.link1{
+    font-size: 0.75em;
+
 }
 .textarea-support{
     width: 100%;
@@ -136,4 +143,68 @@ body{
     background-attachment: fixed;
     min-height: 720px;
 
+}
+
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    bottom: 0;
+    cursor: default;
+    left: 0;
+    opacity: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    visibility: hidden;
+    z-index: 99999;
+		-webkit-transition: opacity .5s;
+		-moz-transition: opacity .5s;
+		-ms-transition: opacity .5s;
+		-o-transition: opacity .5s;
+		transition: opacity .5s;
+}
+.popup {
+	background-color: #fff;
+	border: 3px solid #fff;
+	display: inline-block;
+	left: 50%;
+    opacity: 0;
+    
+    padding: 10px;
+
+	width: 300px;
+	height: auto;
+	position: fixed;
+	text-align: justify;
+	top: 40%;
+	visibility: hidden;
+	z-index: 999999;
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	-webkit-transition: opacity .5s, top .5s;
+	-moz-transition: opacity .5s, top .5s;
+	-ms-transition: opacity .5s, top .5s;
+	-o-transition: opacity .5s, top .5s;
+	transition: opacity .5s, top .5s;
+	border-radius: 11px;
+}
+.popup .close_window {
+	width: 6px;
+	height: 17px;
+	/* position: absolute;
+	padding: 1px 9px 4px 9px; */
+	top: -15px;
+	right: -15px;
+	cursor: pointer;
+	color: gray;
+	text-align: center;
+}
+.popup .close_window:hover {
+
+}
+.popup .close_window:active {
+	background: #8f9be0;
 }

@@ -78,6 +78,17 @@
     background: #00ff68;
     color: white;
 }
+.btn-primary{
+
+    background-color: white !important;
+    color: black !important;
+    border: 1px solid #00ff68 !important;
+    border-radius: 5px !important;
+}
+.btn-primary:hover{
+    background-color: #00ff68 !important;
+    color: white !important;
+}
 .search_result2 li:hover{
     background: #00ff68;
     color: white;

@@ -13,34 +13,34 @@
 <body>
     <div class="container">
         <!-- Header & Navbar -->
-        <?php 
+        <?php
         include('nav.php');
         ?>
         <!-- Header & Navbar -->
 
-         <!-- Main Content -->
-        <?php 
+        <!-- Main Content -->
+        <?php
         include('main.php');
         ?>
-         <!-- Main Content -->
+        <!-- Main Content -->
 
     </div>
     <!-- Carousel -->
-    <?php 
-        include('carousel.php');
+    <?php
+    include('carousel.php');
     ?>
     <!-- Carousel -->
 
     <!-- Main-footer -->
-    <?php 
-        include('main-footer.php');
+    <?php
+    include('main-footer.php');
     ?>
     <!-- Main-footer -->
 
 
     <!-- Footer -->
-    <?php 
-        include('footer.php');
+    <?php
+    include('footer.php');
     ?>
     <!-- Footer -->
 
@@ -50,4 +50,4 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 
-</html> 
+</html>

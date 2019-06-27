@@ -9,6 +9,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/CalculateTab.css">
 
+
 </head>
 
 <body>
@@ -20,7 +21,7 @@
             <fieldset class="field-set">
                 <legend>Пол</legend>
                 <label class="radio-inline">
-                    <input type="radio" name="optradio" id="M" onChange="calculateIndexM()" >Мужчина
+                    <input type="radio" name="optradio" id="M" onChange="calculateIndexM()">Мужчина
                 </label>
                 <label class="radio-inline">
                     <input type="radio" name="optradio" id="W" onChange="calculateIndexM()" />Женщина
@@ -44,23 +45,23 @@
         <form class="input-group">
             <fieldset class="field-set">
                 <legend>Характеристики</legend>
-                
-                <div class = "chrsts-grid">
-                <label for="height">Рост</label>
-                <label for="weight">Вес</label>
-                <label for="age">Возраст</label>
-                <input  type="text" class="input-fields form-control" name="height" id="height" onChange="calculateIndexM()" placeholder="Рост, см" value = "175"/>
-                <input type="text" class="input-fields form-control" name="weight" id="weight" onChange="calculateIndexM()" placeholder="Вес, кг" value = "75"/>
-                <input type="text" class="input-fields form-control" name="age" id="age" onChange="calculateIndexM()" placeholder="Возраст" value = "21"/>
+
+                <div class="chrsts-grid">
+                    <label for="height">Рост</label>
+                    <label for="weight">Вес</label>
+                    <label for="age">Возраст</label>
+                    <input type="text" class="input-fields form-control" name="height" id="height" onChange="calculateIndexM()" placeholder="Рост, см" value="175" />
+                    <input type="text" class="input-fields form-control" name="weight" id="weight" onChange="calculateIndexM()" placeholder="Вес, кг" value="75" />
+                    <input type="text" class="input-fields form-control" name="age" id="age" onChange="calculateIndexM()" placeholder="Возраст" value="21" />
                 </div>
             </fieldset>
         </form>
         <form class="input-group">
             <fieldset class="field-set">
                 <legend>Результат</legend>
-                <h6 id = "fillFilds"><b>Заполните все поля, чтобы получить результат</b></h6>
+                <h6 id="fillFilds"><b>Заполните все поля, чтобы получить результат</b></h6>
                 Индекс массы тела: <label id="indexM"> 0.0</label><br />
-                Суточная норма потребления калорий, кКал: <label id="Cal"> 0.0</label><br />
+                Суточная норма потребления калорий, ккал: <label id="Cal"> 0.0</label><br />
                 Нормальный вес, кг: <label id="normalW"> 0.0</label><br />
                 Белки, грамм: <label id="normalP"> 0.0</label><br />
                 Углеводы, грамм: <label id="normalC"> 0.0</label><br />
@@ -77,7 +78,7 @@
                         <div><label for="Protein" class="input-fields">Белков, грамм</label> <input class="input-fields form-control" id="Protein" type="text" disabled /></div>
                         <div><label for="Fat" class="input-fields">Жиров, грамм</label> <input class="input-fields form-control" id="Fat" type="text" disabled /></div>
                         <div><label for="Carbohydrates" class="input-fields">Углеводов, грамм</label> <input class="input-fields form-control" id="Carbohydrates" type="text" disabled /></div>
-                        <div><label for="Calories" class="input-fields">Калорий, кКал</label> <input class="input-fields form-control" id="Calories" type="text" disabled /></div>
+                        <div><label for="Calories" class="input-fields">Калорий, ккал</label> <input class="input-fields form-control" id="Calories" type="text" disabled /></div>
                     </div>
                 </div>
                 <ul class="search_result"></ul>
@@ -93,15 +94,15 @@
                     <label id="result-cal"></label><br>
                     <label class="last-lable" id="result-ans"></label><br>
                 </div>
-                <h6>Рекомендация</h5>
+                <!-- <h6>Рекомендация</h5>
                     <div class="product-grid">
                         <div><label for="ref" class="input-fields">Название продукта</label> <input class="input-fields form-control" id='ref' type="text" name="referal" placeholder="Начните вводить" disabled/></div>
                         <div><label for="Gramm" class="input-fields">Вес, грамм</label> <input class="input-fields form-control" id="Gramm" type="text" value="100" disabled></div>
                         <div><label for="Protein" class="input-fields">Белков, грамм</label> <input class="input-fields form-control" id="Protein" type="text" disabled /></div>
                         <div><label for="Fat" class="input-fields">Жиров, грамм</label> <input class="input-fields form-control" id="Fat" type="text" disabled /></div>
                         <div><label for="Carbohydrates" class="input-fields">Углеводов, грамм</label> <input class="input-fields form-control" id="Carbohydrates" type="text" disabled /></div>
-                        <div><label for="Calories" class="input-fields">Калорий, кКал</label> <input class="input-fields form-control" id="Calories" type="text" disabled /></div>
-                    </div>
+                        <div><label for="Calories" class="input-fields">Калорий, ккал</label> <input class="input-fields form-control" id="Calories" type="text" disabled /></div>
+                    </div> -->
             </fieldset>
         </form>
         <!-- ОБЕД -->
@@ -115,7 +116,7 @@
                         <div><label for="Protein1" class="input-fields">Белков, грамм</label> <input class="input-fields form-control" id="Protein1" type="text" disabled /></div>
                         <div><label for="Fat1" class="input-fields">Жиров, грамм</label> <input class="input-fields form-control" id="Fat1" type="text" disabled /></div>
                         <div><label for="Carbohydrates1" class="input-fields">Углеводов, грамм</label> <input class="input-fields form-control" id="Carbohydrates1" type="text" disabled /></div>
-                        <div><label for="Calories1" class="input-fields">Калорий, кКал</label> <input class="input-fields form-control" id="Calories1" type="text" disabled /></div>
+                        <div><label for="Calories1" class="input-fields">Калорий, ккал</label> <input class="input-fields form-control" id="Calories1" type="text" disabled /></div>
                     </div>
                 </div>
                 <ul class="search_result1"></ul>
@@ -131,15 +132,15 @@
                     <label id="result-cal1"></label><br>
                     <label id="result-ans1"></label><br>
                 </div>
-                <h6>Рекомендация</h5>
+                <!-- <h6>Рекомендация</h5>
                 <div class="product-grid">
                         <div><label for="ref" class="input-fields">Название продукта</label> <input class="input-fields form-control" id='ref' type="text" name="referal" placeholder="Начните вводить" disabled/></div>
                         <div><label for="Gramm" class="input-fields">Вес, грамм</label> <input class="input-fields form-control" id="Gramm" type="text" value="100" disabled></div>
                         <div><label for="Protein" class="input-fields">Белков, грамм</label> <input class="input-fields form-control" id="Protein" type="text" disabled /></div>
                         <div><label for="Fat" class="input-fields">Жиров, грамм</label> <input class="input-fields form-control" id="Fat" type="text" disabled /></div>
                         <div><label for="Carbohydrates" class="input-fields">Углеводов, грамм</label> <input class="input-fields form-control" id="Carbohydrates" type="text" disabled /></div>
-                        <div><label for="Calories" class="input-fields">Калорий, кКал</label> <input class="input-fields form-control" id="Calories" type="text" disabled /></div>
-                    </div>
+                        <div><label for="Calories" class="input-fields">Калорий, ккал</label> <input class="input-fields form-control" id="Calories" type="text" disabled /></div>
+                    </div> -->
             </fieldset>
         </form>
         <!-- УЖИН -->
@@ -153,7 +154,7 @@
                         <div><label for="Protein2" class="input-fields">Белков, грамм</label> <input class="input-fields form-control" id="Protein2" type="text" disabled /></div>
                         <div><label for="Fat2" class="input-fields">Жиров, грамм</label> <input class="input-fields form-control" id="Fat2" type="text" disabled /></div>
                         <div><label for="Carbohydrates2" class="input-fields">Углеводов, грамм</label> <input class="input-fields form-control" id="Carbohydrates2" type="text" disabled /></div>
-                        <div><label for="Calories2" class="input-fields">Калорий, кКал</label> <input class="input-fields form-control" id="Calories2" type="text" disabled /></div>
+                        <div><label for="Calories2" class="input-fields">Калорий, ккал</label> <input class="input-fields form-control" id="Calories2" type="text" disabled /></div>
                     </div>
                 </div>
                 <ul class="search_result2"></ul>
@@ -169,31 +170,38 @@
                     <label id="result-cal2"></label><br>
                     <label id="result-ans2"></label><br>
                 </div>
-                <h6>Рекомендация</h5>
+                <!-- <h6>Рекомендация</h5>
                 <div class="product-grid">
                         <div><label for="ref" class="input-fields">Название продукта</label> <input class="input-fields form-control" id='ref' type="text" name="referal" placeholder="Начните вводить" disabled/></div>
                         <div><label for="Gramm" class="input-fields">Вес, грамм</label> <input class="input-fields form-control" id="Gramm" type="text" value="100" disabled></div>
                         <div><label for="Protein" class="input-fields">Белков, грамм</label> <input class="input-fields form-control" id="Protein" type="text" disabled /></div>
                         <div><label for="Fat" class="input-fields">Жиров, грамм</label> <input class="input-fields form-control" id="Fat" type="text" disabled /></div>
                         <div><label for="Carbohydrates" class="input-fields">Углеводов, грамм</label> <input class="input-fields form-control" id="Carbohydrates" type="text" disabled /></div>
-                        <div><label for="Calories" class="input-fields">Калорий, кКал</label> <input class="input-fields form-control" id="Calories" type="text" disabled /></div>
-                    </div>
+                        <div><label for="Calories" class="input-fields">Калорий, ккал</label> <input class="input-fields form-control" id="Calories" type="text" disabled /></div>
+                    </div> -->
             </fieldset>
         </form>
-        <form class="input-group">
+        <form class="input-group" method="POST">
             <fieldset class="field-set">
                 <legend>Итого за день</legend>
                 <div class="result_count3" hidden>
-                    <label id="result-protein3"></label><br>
-                    <label id="result-fat3"></label><br>
-                    <label id="result-carbohydrates3"></label><br>
-                    <label id="result-cal3"></label><br>
+                    <label id="result-protein3"></label>
+                    <input type="text" id="result-proteinI" name="result-proteinI" style="visibility: hidden;" /><br>
+                    <label id="result-fat3"></label>
+                    <input type="text" id="result-fatI" name="result-fatI" style="visibility: hidden;" /><br>
+                    <label id="result-carbohydrates3"></label>
+                    <input type="text" id="result-carbohydratesI" name="result-carbohydratesI" style="visibility: hidden;" /><br>
+                    <label id="result-cal3"></label>
+                    <input type="text" id="result-calI" name="result-calI" style="visibility: hidden;" /><br>
                     <label id="result-ans3"></label><br>
+                    <button id="addToDiary" name="addToDiary" type="submit" class="btn btn-primary">Добавить в дневник</button>
                 </div>
             </fieldset>
         </form>
     </div>
-
+    <?php
+    require('addToDiary.php');
+    ?>
     <?php
     include('footer.php');
     ?>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
+
 <head>
-<link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="./css/Style.css" />
@@ -19,30 +20,39 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <form method = "POST">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php">Главная </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="calculate.php">Расчет калорий</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="news.php">Новости</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="support.php">Поддержка</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contacts">Контакты</a>
-                    </li>
-                    <li class="nav-item">
-                    </li>
-                    <?
-                        require("exit.php");
-                    ?>
+                <form method="POST">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php">Главная </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="calculate.php">Расчет калорий</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="news.php">Новости</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="support.php">Поддержка</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contacts">Контакты</a>
+                        </li>
+                        <ul class="navbar-nav mr-auto ">
+                            <li class="nav-item hideIt">
+                                <a style="visibility:hidden" class="nav-link">Главная </a>
+                            </li>
+                        </ul>
+                        <?
+                        session_start();
+                        if ($_SESSION['login'] == "") {
+                            require("enter.php");
+                        } else {
+                            require("exit.php");
+                        }
 
-                </ul>
+                        ?>
+
+                    </ul>
                 </form>
                 <div class="box">
 
@@ -55,7 +65,7 @@
             </div>
         </nav>
     </Header>
-    <script src = "exit.js"></script>
+    <script src="exit.js"></script>
 </body>
 
 </html>

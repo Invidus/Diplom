@@ -1,0 +1,42 @@
+a{
+    color:gray !important;
+}
+.lkgrid{
+    align-items: center;
+}
+fieldset{
+    background-color: white;
+}
+.cancel{
+    text-decoration: none !important;
+    color: gray !important;
+}
+.cancel:hover{
+    color:#00ff68 !important;
+}
+.tableUserM{
+    margin: 10px;
+    background-color:white ;
+    border:2px solid gray;
+   
+}
+th{
+    min-width: 300px;
+    border-right: 2px solid gray;
+}
+td{
+    height: auto;
+    border-right: 2px solid gray;
+    border-top: 2px solid gray;
+    
+    word-wrap:break-word;
+}
+table{     
+    table-layout: fixed;   
+    width:100% ;
+    
+} 
+.cancel{
+    position: relative;
+    margin-top: 10px;
+}

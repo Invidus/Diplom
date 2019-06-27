@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,25 +13,58 @@
     <link rel="stylesheet" href="./css/CalculateTab.css">
     <link rel="stylesheet" href="./css/Style.css">
     <link rel="stylesheet" href="./css/Authorization.css">
+    <link rel="stylesheet" href="./css/userLK.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
 </head>
+
 <body>
-    <div class = "container ">
-        <div class = "lkgrid">
-            <h5>Личный кабинет, admin</h5>
-            <button type="submit" class = "btn btn-primary" style = "width: 150px; height: 50px; ">Выход</button></div>
+    <div class="container ">
+        <h6><a class="cancel" href="index.php"><i>
+                    <- Назад</i> </a> </h6> <div class="lkgrid">
+                        <h5>Панель администратора</h5>
+                        <a class="nav-link reg-link" href="logout.php">Выход</a>
+    </div>
+    <?
+    require("connect.php");
 
-            <div class="counter-block">
-                    <div class="product-grid1">
-                        <div><label for="ref" class="input-fields">Имя пользователя</label> <input class="input-fields form-control" id='ref' type="text" name="referal"  /></div>
-                        <div><label for="Gramm" class="input-fields">Email</label> <input class="input-fields form-control" id="Gramm" type="text"  /></div>
-                        <div><label for="Protein" class="input-fields">Сообщение</label> <textarea class="input-fields form-control" id="Protein" type="text" ></textarea></div>
+    $query = "select * from `support` where msg != '';";
+    $result = mysqli_query($link, $query) or die("Error sql" . mysql_error($link));
+    while ($row = mysqli_fetch_array($result)) {
+        echo '<table class = "tableUserM">
+        <tr>
+        <th>Имя</th>
+        <th>Почта</th>
+        <th>Сообщение</th>
+        </tr>
+        <tr>
+            <td>' . $row[name] . '</td>
+            <td>' . $row[email] . '</td>
+            <td>' . $row[msg] . '</td>
+        </tr>
+    </table>';
+    }
 
-                    </div>
-                </div>
+    ?>
 
-        </div>
-    
+    <div class="registration-inputs">
+        <form method="POST">
+            <input class="form-control" id="emailO" name="emailO" type="text" placeholder="Почта" />
+            <textarea class="textarea-support form-control" name="msgO" id="msgO" cols="40" rows="10" placeholder="Ответ..."></textarea>
+            <button id="sendM" name="sendM" type="submit" class="btn btn-primary">Отправить письмо</button>
+        </form>
+    </div>
+    <?
+    if (isset($_POST['sendM'])) {
+        $subj = 'Healthy diet';
+        $to = $_POST['emailO'];
+        $msg = $_POST['msgO'];
+        mail($to, $subj, $msg);
+        echo "<script>Письмо было успешно отправлено!</script>";
+    }
+    ?>
+    </div>
+
 </body>
+
 </html>

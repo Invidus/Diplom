@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,41 +13,48 @@
     <link rel="stylesheet" href="./css/CalculateTab.css">
     <link rel="stylesheet" href="./css/Style.css">
     <link rel="stylesheet" href="./css/Authorization.css">
+    <link rel="stylesheet" href="./css/userLK.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
 </head>
-<body>
-    <div class = "container ">
-        <div class = "lkgrid">
-            <h5>Личный кабинет, yurnero20</h5>
-            <button type="submit" class = "btn btn-primary" style = "width: 150px; height: 50px; ">Выход</button>
-        </div>
-<form class="input-group">
-            <fieldset class="field-set">
-            <?
-     date_default_timezone_set('Russia/Moskow');
-     $date = date('m/d/Y ', time());
-     echo "<legend>Итого за ".$date."</legend>";
 
-    ?>
-                
-                <div class="result_count3" hidden>
-                    <label id="result-protein3"></label><br>
-                    <label id="result-fat3"></label><br>
-                    <label id="result-carbohydrates3"></label><br>
-                    <label id="result-cal3"></label><br>
-                    <label id="result-ans3"></label><br>
+<body>
+    <div class="container">
+        <a class="cancel" href="index.php"><i>
+                <- Назад</i> </a> <div class="lkgrid">
+                    <h5>Дневник,
+                        <? session_start();
+                        echo $_SESSION['login']; ?>
+                    </h5>
+                    <a class="nav-link reg-link" href="logout.php">Выход</a>
+    </div>
+    <?
+    require("connect.php");
+    $log = $_SESSION['login'];
+
+    $query = "select id from `users` where login = '$log';";
+    $result = mysqli_query($link, $query) or die("Error sql" . mysql_error($link));
+    while ($row = mysqli_fetch_array($result)) {
+        $id = $row[id];
+        $query = "select * from `calculations` where id = $id";
+        $result1 = mysqli_query($link, $query) or die("Error sql" . mysql_error($link));
+        while ($row = mysqli_fetch_array($result1)) {
+
+            echo '  <form class="input-group">
+            <fieldset class="field-set">               
+                 <legend>Итого за ' . $row[date] . '</legend>
+                <div class="result_count3">
+                    <label>Жиров, грамм: ' . $row[fat] . '</label><br>
+                    <label>Белков, грамм: ' . $row[protein] . '</label><br>
+                    <label>Углеводов, грамм: ' . $row[carbohydrates] . '</label><br>
+                    <label>Калорий, ккал: ' . $row[calories] . '</label><br>                  
                 </div>
             </fieldset>
-        </form>
-
-    <script>
-        $(".result_count3").removeAttr("hidden");
-    $("#result-protein3").text("Белков, грамм: 171");
-        $("#result-fat3").text("Жиров, грамм: 254");
-        $("#result-carbohydrates3").text("Углеводов, грамм: 329") ;
-        $("#result-cal3").text("Калорий, кКал: " + 2257);
-        $("#result-ans3").text("За сегодня вы употребили: 102% калорий от суточной нормы (" + 2257 + " кКал из " + 2212 + " кКал)");</script>
-        </div>
+        </form>';
+        }
+    }
+    ?>
+    </div>
 </body>
+
 </html>

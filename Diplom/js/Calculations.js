@@ -248,7 +248,7 @@ function calculateIndexM() { //Расчет индекса массы тела
                     var c = document.getElementById("Cal");
                     c.innerText = cal.toFixed(1);
                     PFClowM(weight);
-                    
+
                     break;
 
                 case 5:
