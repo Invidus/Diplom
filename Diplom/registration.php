@@ -2,112 +2,94 @@
 <html lang="ru">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Registration</title>
-    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./css/Authorization.css">
-    <link rel="stylesheet" href="./css/Style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
 </head>
 
 <body>
-
     <?
-    $fname = clearing($_POST['fname']);
-    $lname = clearing($_POST['lname']);
-    $surname = clearing($_POST['surname']);
-    $login = $_POST['login'];
-    $pass = $_POST['pass'];
-    $rpass = $_POST['rpass'];
-    $email = $_POST['email'];
+        require('addHeadLinks.php');
+        $fname = clearing($_POST['fname']);
+        $lname = clearing($_POST['lname']);
+        $surname = clearing($_POST['surname']);
+        $login = $_POST['login'];
+        $pass = $_POST['pass'];
+        $rpass = $_POST['rpass'];
+        $email = $_POST['email'];
+    
+        // Очистка от Html и php тегов
+        function clearing($value)
+        {
+            $value = trim($value);
+            $value = stripslashes($value);
+            $value = strip_tags($value);
+            $value = htmlspecialchars($value);
+            return $value;
+        }
+    
+        // Проверка длины введенных данных
+        function check_length($value, $min, $max)
+        {
+            $result = (mb_strlen($value) < $min || mb_strlen($value) > $max);
+            return !$result;
+        }
+    
+        // Проверка на незаполненные поля
+        if (!empty($fname) && !empty($lname) && !empty($login) && !empty($pass) &&
+            !empty($surname) && !empty($rpass) && !empty($email)) {
+            if ($pass == $rpass) {
+                if (check_length($fname, 2, 40) && check_length($lname, 2, 50) &&
+                    check_length($login, 2, 50) && check_length($email, 2, 100) &&
+                    check_length($surname, 2, 50) && check_length($pass, 2, 32)) {
+    
+                    require("connect.php");
 
-    // Очистка от Html и php тегов
-    function clearing($value)
-    {
-        $value = trim($value);
-        $value = stripslashes($value);
-        $value = strip_tags($value);
-        $value = htmlspecialchars($value);
-        return $value;
-    }
+                    $fname = filter_var(trim($_POST['fname']), FILTER_SANITIZE_STRING);
+                    $lname = filter_var(trim($_POST['lname']), FILTER_SANITIZE_STRING);
+                    $login = filter_var(trim($_POST['login']), FILTER_SANITIZE_STRING);
+                    $pass = filter_var(trim($_POST['pass']), FILTER_SANITIZE_STRING);
+                    $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_STRING);
+                    $surname = filter_var(trim($_POST['surname']), FILTER_SANITIZE_STRING);
 
-    // Проверка длины введенных данных
-    function check_length($value, $min, $max)
-    {
-        $result = (mb_strlen($value) < $min || mb_strlen($value) > $max);
-        return !$result;
-    }
-
-    // Проверка на незаполненные поля
-    if (
-        !empty($fname) && !empty($lname) && !empty($login) && !empty($pass) &&
-        !empty($surname) && !empty($rpass) && !empty($email)
-    ) {
-        if ($pass == $rpass) {
-            if (
-                check_length($fname, 2, 25) && check_length($lname, 2, 50) &&
-                check_length($login, 2, 30) && check_length($email, 2, 80) &&
-                check_length($surname, 2, 30) && check_length($pass, 2, 30)
-            ) {
-
-                require("connect.php");
-
-                $fnameBD = htmlentities(mysqli_real_escape_string($link, $_POST['fname']));
-                $lnameBD = htmlentities(mysqli_real_escape_string($link, $_POST['lname']));
-                $loginBD = htmlentities(mysqli_real_escape_string($link, $_POST['login']));
-
-                $passBD = password_hash(htmlentities(mysqli_real_escape_string($link, $_POST['pass'])), PASSWORD_DEFAULT);
-                $emailBD = htmlentities(mysqli_real_escape_string($link, $_POST['email']));
-                $surnameBD = htmlentities(mysqli_real_escape_string($link, $_POST['surname']));
-
-                //проверка повторения логина
-                $que = "select * from `users` where  login = '$login';";
-                $resu = mysqli_query($link, $que);
-                if (mysqli_num_rows($resu) > 0) {
-                    $errorMsgUse = 'Данный логин уже используется!';
-                    // echo ("<script>alert('Данный логин уже используется');</script>");
+                    $pass = md5($pass."iiwusascxzsdj777");
                     //проверка повторения логина
-                } else {
-                    $emailCheck = "select * from `users` where email = '$email'";
-                    $emailRes = mysqli_query($link, $emailCheck);
-                    if (mysqli_num_rows($emailRes) > 0) {
-                        $errorMsgEmail = 'Данная почта уже используется!';
+                    $que = "select * from `users` where  login = '$login';";
+                    $resu = mysqli_query($link, $que);
+                    if (mysqli_num_rows($resu) > 0) {
+                        $errorMsgUse = 'Данный логин уже используется!';
                     } else {
-                        // Внесение данных в БД
-                        $query = "Insert into `users` values('0','$fnameBD','$lnameBD','$surnameBD','$emailBD','$loginBD','$passBD')";
-                        $result = mysqli_query($link, $query) or die("Error sql" . mysql_error($link));
-                        $queryLog = "Select id from `users` where login = '$loginBD';";
-                        $res = mysqli_query($link, $queryLog);
-                        while ($resultLog = mysqli_fetch_array($res)) {
-                            $idUser = $resultLog[id];
+                        //проверка повторения email
+                        $emailCheck = "select * from `users` where email = '$email'";
+                        $emailRes = mysqli_query($link, $emailCheck);
+                        if (mysqli_num_rows($emailRes) > 0) {
+                            $errorMsgEmail = 'Данная почта уже используется!';
+                        } else {
+                            // Внесение данных в БД
+                            $query = "Insert into `users` values('0','$login','$pass','$fname','$lname','$surname','$email')";
+                            $result = mysqli_query($link, $query) or die("Error sql" . mysql_error($link));
+                            $queryLog = "Select id from `users` where login = '$login';";
+                            $res = mysqli_query($link, $queryLog);
+                            while ($resultLog = mysqli_fetch_array($res)) {
+                                $idUser = $resultLog[id];
+                            }
+                            $resultLog =  mysqli_fetch_row($res);
+                            $querySupport = "Insert into `support` values('$idUser','$fname','$email','')";
+                            $resultSupport = mysqli_query($link, $querySupport) or die("Error sql" . mysql_error($link));
+                            echo $result;
+                            if ($result) {
+                                $successMsg = 'Вы успешно зарегистровались!';
+                                header('Location: http://localhost/Diplom/Diplom/index.php');
+                            }
+                            mysqli_close($link);
+                            // Внесение данных в БД
                         }
-                        $resultLog =  mysqli_fetch_row($res);
-                        $querySupport = "Insert into `support` values('$idUser','$fnameBD','$emailBD','')";
-                        $resultSupport = mysqli_query($link, $querySupport) or die("Error sql" . mysql_error($link));
-                        if ($result) {
-                            $successMsg = 'Вы успешно зарегистровались!';
-                            header('Refresh: 1;url = http://localhost:85/Diplom/auth.php');
-                        }
-                        mysqli_close($link);
-                        // Внесение данных в БД
                     }
+                } else {
+                    $errorMsgLength = 'Введена неверная длина одного из полей!';
                 }
             } else {
-                $errorMsgLength = 'Введена неверная длина одного из полей!';
-                // echo ("<script>alert('Введена неверная длина одного из полей!');</script>");
+                $errorMsgPass = 'Пароли не совпадают!';
             }
-        } else {
-            $errorMsgPass = 'Пароли не совпадают!';
-
-            // echo ("<script>alert('Пароли не совпадают');</script>");
         }
-    }
     ?>
 
     <div class="registration-inputs">

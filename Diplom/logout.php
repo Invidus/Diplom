@@ -1,5 +1,5 @@
 <?
-session_start();
+setcookie('user', $user['name'], time() - 3600 * 24, "/");
 session_destroy();
-header('location:index.php');
+header('Location:index.php');
 exit;
