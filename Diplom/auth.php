@@ -23,25 +23,8 @@
                 exit();
             }
             // Установка куки польз-ля на одни сутки
-            setcookie('user', $user['name'], time() + 3600 * 24, "/");
-            echo 'norm';
+            setcookie('user', $user['fname'], time() + 3600 * 24, "/");
             header('Location: http://localhost/Diplom/Diplom/index.php');
-
-
-//            if ($login == "admin" && $pass == "admin") {
-//                $_SESSION['login'] = "admin";
-//                header('Location: http://localhost/Diplom/Diplom/adminLK.php');
-//            } else {
-//                while ($row = mysqli_fetch_array(($res))) {
-//                    if (password_verify($pass, $row['password'])) {
-//                        $_SESSION['login'] = $login;
-//                        $successMsg = "Авторизация прошла успешно.";
-//                        header('Location: http://localhost/Diplom/Diplom/index.php');
-//                    } else {
-//                        $errorMsgWrongPass = "Неверный пароль";
-//                    }
-//                }
-//            }
             mysqli_close($link);
         }
     ?>

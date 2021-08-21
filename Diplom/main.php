@@ -13,14 +13,14 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block w-100 carousel-imgs" src="images/algunos-motivos-por-los-cuales-engordamos_1100x500.jpg" alt="First slide">
+                        <img class="d-block w-100 carousel-imgs" src="Images/algunos-motivos-por-los-cuales-engordamos_1100x500.jpg" alt="First slide">
                         <div class="carousel-caption d-none d-md-block">
                             <h1 class="carousel-font">Похудение</h1>
                             <p class="carousel-font carousel-text"><b>Уменьшите свой вес на 3 кг всего за одну неделю!</b></p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100 carousel-imgs" src="images/tips-to-stick-to-dieting-amp-exercising-without-failing-or-getting-discouraged1400-1527597291_1100x513.jpg" alt="Second slide">
+                        <img class="d-block w-100 carousel-imgs" src="Images/tips-to-stick-to-dieting-amp-exercising-without-failing-or-getting-discouraged1400-1527597291_1100x513.jpg" alt="Second slide">
                         <div class="carousel-caption d-none d-md-block">
                             <h1 class="carousel-font">Набор массы</h1>
                             <p class="carousel-font carousel-text"><b> Мечтаете нарастить 5 - 7 килограммов качественной мускулатуры, но не знаете как?</b></p>

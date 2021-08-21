@@ -1,5 +1,4 @@
 <?
-session_start();
 echo '<li class="nav-item nav-signs">
     <a class="nav-link" href="auth.php">Вход</a> 
     </li>

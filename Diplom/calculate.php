@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Calculations</title>
-    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./Images/favicon.ico" type="image/x-icon">
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/CalculateTab.css">
 
@@ -30,14 +30,25 @@
         </form>
         <form class="input-group">
             <fieldset class="field-set">
+                <legend>Цель</legend>
+                <select class="custom-select select-lvl" id="goalMain" onChange="calculateIndexM()"><br>
+                    <option value="1">Уменьшение лишнего веса (похудение)</option>
+                    <option value="2">Набор мышечной массы</option>
+                    <option value="3">Комфортный вес</option>
+                    <option value="4">Набор веса</option>
+                </select>
+            </fieldset>
+        </form>
+
+        <form class="input-group">
+            <fieldset class="field-set">
                 <legend>Уровень физической нагрузки</legend>
                 <select class="custom-select select-lvl" id="inputGroupSelect04" onChange="calculateIndexM()"><br>
-                    <option value="1">Сидячий образ жизни</option>
-                    <option value="2">Легкие физ.нагрузки (1-3 раза в неделю)</option>
-                    <option value="3">Средние физ.нагрузки (3-5 раз в неделю)</option>
-                    <option value="4">Ежедневные тренировки </option>
-                    <option value="5">Снижение веса </option>
-                    <option value="6">Набор мышечной массы </option>
+                    <option value="1">Отсутствие активности (сидячий образ жизни, не занимающиеся спортом)</option>
+                    <option value="2">Низкая активность (сидячий образ жизни + регулярная ходьба)</option>
+                    <option value="3">Средняя активность (тренировки 3 раза в неделю по 60 минут)</option>
+                    <option value="4">Высокая активность (ежедневные тренировки, либо тяжелый физическй труд)</option>
+                    <option value="5">Экстремальная активность (ежедневные многоразовые тренировки, либо тяжелый физический труд)</option>
                 </select>
             </fieldset>
         </form>
@@ -51,8 +62,8 @@
                     <label for="weight">Вес</label>
                     <label for="age">Возраст</label>
                     <input type="text" class="input-fields form-control" name="height" id="height" onChange="calculateIndexM()" placeholder="Рост, см" value="175" />
-                    <input type="text" class="input-fields form-control" name="weight" id="weight" onChange="calculateIndexM()" placeholder="Вес, кг" value="75" />
-                    <input type="text" class="input-fields form-control" name="age" id="age" onChange="calculateIndexM()" placeholder="Возраст" value="21" />
+                    <input type="text" class="input-fields form-control weight-input" name="weight" id="weight" onChange="calculateIndexM()" placeholder="Вес, кг" value="75" />
+                    <input type="text" class="input-fields form-control age-input" name="age" id="age" onChange="calculateIndexM()" placeholder="Возраст" value="21" />
                 </div>
             </fieldset>
         </form>

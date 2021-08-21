@@ -1,9 +1,9 @@
 <?
-$user = 'root';
-$password = 'root';
-$db = 'user-bd';
-$host = 'localhost';
-$port = 3306;
+$user = 'a370634_csv_db';
+$password = 'Timeofdie29';
+$db = 'a370634_csv_db';
+$host = 'a370634.mysql.mchost.ru';
+
 
 $link = mysqli_init();
 $success = mysqli_real_connect(
@@ -11,6 +11,5 @@ $success = mysqli_real_connect(
    $host,
    $user,
    $password,
-   $db,
-   $port
+   $db
 );

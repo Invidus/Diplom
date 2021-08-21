@@ -1,81 +1,47 @@
-$(function () {
-
+function liveSearchScript(inputId, dropDownList) {
     //Живой поиск завтрак
-    $('.counter-block').on("change keyup input click", "#ref", function () {
+    $('.counter-block').on("change keyup input click", inputId, function () {
         if (this.value.length >= 2) {
             $.ajax({
-                type: 'post',
-                url: "search.php", //Путь к обработчику
-                data: { 'referal': this.value },
-                response: 'text',
+                method: 'POST',
+                url: "/search.php", //Путь к обработчику
+                data: {nameOfProductValue: this.value} ,
                 success: function (data) {
-                    $(".search_result").html(data).fadeIn();
+                    $(dropDownList).html(data).fadeIn();
                 },
-                error: function () {
-                    alert("Данные не были отправлены");
+                error: function (jqXHR, exception) {
+                    if (jqXHR.status === 0) {
+                        alert('Not connect. Verify Network.');
+                    } else if (jqXHR.status == 404) {
+                        alert('Requested page not found (404).');
+                    } else if (jqXHR.status == 500) {
+                        alert('Internal Server Error (500).');
+                    } else if (exception === 'parsererror') {
+                        alert('Requested JSON parse failed.');
+                    } else if (exception === 'timeout') {
+                        alert('Time out error.');
+                    } else if (exception === 'abort') {
+                        alert('Ajax request aborted.');
+                    } else {
+                        alert('Uncaught Error. ' + jqXHR.responseText);
+                    }
                 }
             })
         }
         else {
-            $(".search_result").fadeOut();
+            $(dropDownList).fadeOut();
         }
 
     })
-    $(".search_result").hover(function () {
-        $("#ref").blur();
+    $(dropDownList).hover(function () {
+        $(inputId).blur();
     })
+}
 
-    //Живой поиск обед
-    $('.counter-block').on("change keyup input click", "#ref1", function () {
-        if (this.value.length >= 2) {
-            $.ajax({
-                type: 'post',
-                url: "search.php", //Путь к обработчику
-                data: { 'referal': this.value },
-                response: 'text',
-                success: function (data) {
-                    $(".search_result1").html(data).fadeIn();
-                },
-                error: function () {
-                    alert("Данные не были отправлены");
-                }
-            })
-        }
-        else {
-            $(".search_result1").fadeOut();
-        }
-
-    })
-
-    $(".search_result1").hover(function () {
-        $("#ref1").blur();
-    })
-
-    //Живой поиск ужин
-    $('.counter-block').on("change keyup input click", "#ref2", function () {
-        if (this.value.length >= 2) {
-            $.ajax({
-                type: 'post',
-                url: "search.php", //Путь к обработчику
-                data: { 'referal': this.value },
-                response: 'text',
-                success: function (data) {
-                    $(".search_result2").html(data).fadeIn();
-                },
-                error: function () {
-                    alert("Данные не были отправлены");
-                }
-            })
-        }
-        else {
-            $(".search_result2").fadeOut();
-        }
-
-    })
-
-    $(".search_result2").hover(function () {
-        $("#ref2").blur();
-    })
+$(function () {
+    liveSearchScript('#ref', '.search_result');
+    liveSearchScript('#ref1', '.search_result1');
+    liveSearchScript('#ref2', '.search_result2');
 
 
     var caloriesVar, caloriesVar1, caloriesVar2;

@@ -2,6 +2,7 @@
 <html lang="ru">
 
 <head>
+    <meta charset="utf8" />
     <title>Registration</title>
 </head>
 
@@ -49,6 +50,11 @@
                     $pass = filter_var(trim($_POST['pass']), FILTER_SANITIZE_STRING);
                     $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_STRING);
                     $surname = filter_var(trim($_POST['surname']), FILTER_SANITIZE_STRING);
+                    $login = addslashes($login);
+                    $fname = addslashes($fname);
+                    $lname = addslashes($lname);
+                    $email = addslashes($email);
+                    $surname = addslashes($surname);
 
                     $pass = md5($pass."iiwusascxzsdj777");
                     //проверка повторения логина
@@ -64,8 +70,11 @@
                             $errorMsgEmail = 'Данная почта уже используется!';
                         } else {
                             // Внесение данных в БД
-                            $query = "Insert into `users` values('0','$login','$pass','$fname','$lname','$surname','$email')";
-                            $result = mysqli_query($link, $query) or die("Error sql" . mysql_error($link));
+                            mysqli_query($link,"SET NAMES UTF8");
+                            mysqli_query($link,"SET CHARACTER SET UTF8");
+
+                            $query = "Insert into `users` values('0','$fname','$lname','$surname','$email','$login','$pass')";
+                            $result = mysqli_query($link, $query) or die("Error sql" . mysqli_error($link));
                             $queryLog = "Select id from `users` where login = '$login';";
                             $res = mysqli_query($link, $queryLog);
                             while ($resultLog = mysqli_fetch_array($res)) {
@@ -77,7 +86,8 @@
                             echo $result;
                             if ($result) {
                                 $successMsg = 'Вы успешно зарегистровались!';
-                                header('Location: http://localhost/Diplom/Diplom/index.php');
+                                header('Location: http://demon439.ru/calculate.php');
+                                // ЗДЕСЬ МЕНЯЕМ ЧТОБЫ НЕ КРАШИЛО СТРАНИЦУ
                             }
                             mysqli_close($link);
                             // Внесение данных в БД

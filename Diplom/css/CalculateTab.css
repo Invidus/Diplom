@@ -113,17 +113,23 @@ a{
     text-decoration: none !important;
 }
 input:disabled{
-    background: white !important;     
-  }
-  .input-fields{
-      width: 100% !important;
-      margin-bottom: 10px;
-  }
+    background: white !important;
+}
+.input-fields{
+  width: auto !important;
+  margin-bottom: 10px;
+}
+
+
 .table_result,.table_result1,.table_result2{
     display: grid ;
     grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr 1fr ;
     
 }
+.weight-input {
+    margin: 0px 5px 10px;
+}
+
 .toHide{
     display:none;
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <head>
-    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./Images/favicon.ico" type="image/x-icon">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="./css/Style.css" />
@@ -15,7 +15,7 @@
 <body>
     <Header>
         <nav class="navbar navbar-expand-lg navbar-light ">
-            <a class="navbar-brand brand-logo" href="index.php"><img class="logo" src="images/HLogo.png" alt="logo" width="100px" height="87px"></a>
+            <a class="navbar-brand brand-logo" href="index.php"><img class="logo" src="Images/HLogo.png" alt="logo" width="100px" height="87px"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -43,13 +43,11 @@
                             </li>
                         </ul>
                         <?
-                        session_start();
-                        if ($_SESSION['login'] == "") {
+                        if ($_COOKIE['user'] == "") {
                             require("enter.php");
                         } else {
                             require("exit.php");
                         }
-
                         ?>
 
                     </ul>
