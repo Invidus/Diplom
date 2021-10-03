@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div style="width: 100%">
         <?php
         include('nav.php');
         ?>
@@ -21,17 +21,17 @@
             <fieldset class="field-set">
                 <legend>Пол</legend>
                 <label class="radio-inline">
-                    <input type="radio" name="optradio" id="M" onChange="calculateIndexM()">Мужчина
+                    <input type="radio" name="optradio" id="M" onChange="calculateIndexM()"> Мужчина
                 </label>
                 <label class="radio-inline">
-                    <input type="radio" name="optradio" id="W" onChange="calculateIndexM()" />Женщина
+                    <input type="radio" name="optradio" id="W" onChange="calculateIndexM()" /> Женщина
                 </label>
             </fieldset>
         </form>
         <form class="input-group">
             <fieldset class="field-set">
                 <legend>Цель</legend>
-                <select class="custom-select select-lvl" id="goalMain" onChange="calculateIndexM()"><br>
+                <select class="custom-select select-lvl select-height" id="goalMain" onChange="calculateIndexM()"><br>
                     <option value="1">Уменьшение лишнего веса (похудение)</option>
                     <option value="2">Набор мышечной массы</option>
                     <option value="3">Комфортный вес</option>
@@ -43,7 +43,7 @@
         <form class="input-group">
             <fieldset class="field-set">
                 <legend>Уровень физической нагрузки</legend>
-                <select class="custom-select select-lvl" id="inputGroupSelect04" onChange="calculateIndexM()"><br>
+                <select class="custom-select select-lvl select-height" id="inputGroupSelect04" onChange="calculateIndexM()"><br>
                     <option value="1">Отсутствие активности (сидячий образ жизни, не занимающиеся спортом)</option>
                     <option value="2">Низкая активность (сидячий образ жизни + регулярная ходьба)</option>
                     <option value="3">Средняя активность (тренировки 3 раза в неделю по 60 минут)</option>
@@ -57,13 +57,36 @@
             <fieldset class="field-set">
                 <legend>Характеристики</legend>
 
-                <div class="chrsts-grid">
-                    <label for="height">Рост</label>
-                    <label for="weight">Вес</label>
-                    <label for="age">Возраст</label>
-                    <input type="text" class="input-fields form-control" name="height" id="height" onChange="calculateIndexM()" placeholder="Рост, см" value="175" />
-                    <input type="text" class="input-fields form-control weight-input" name="weight" id="weight" onChange="calculateIndexM()" placeholder="Вес, кг" value="75" />
-                    <input type="text" class="input-fields form-control age-input" name="age" id="age" onChange="calculateIndexM()" placeholder="Возраст" value="21" />
+                <div class="chr-grid">
+                    <input type="text" class="input-fields form-control" name="height" id="height" onChange="calculateIndexM()" placeholder="Рост, см"/>
+                    <input type="text" class="input-fields form-control" name="weight" id="weight" onChange="calculateIndexM()" placeholder="Вес, кг"/>
+                    <input type="text" class="input-fields form-control" name="age" id="age" onChange="calculateIndexM()" placeholder="Возраст"/>
+                </div>
+            </fieldset>
+        </form>
+        <form class="input-group">
+            <fieldset class="field-set">
+                <legend>Тип телосложения</legend>
+
+                <div class="form-check form-check-inline type-body-grid body-type-div">
+                    <input class="form-check-input" type="radio" name="radioBodyType" id="ectomorphInput" value="ectomorphValue" hidden>
+                    <label class="form-check-label label-body-type" for="ectomorphInput">
+                        <img class="body-type-img" id="ectomorphImg" src="Images/Ecto.png" alt="Ecto">
+                    </label>
+                    <input class="form-check-input" type="radio" name="radioBodyType" id="mesomorphInput" value="mesomorphValue" hidden>
+                    <label class="form-check-label label-body-type" for="mesomorphInput">
+                        <img class="body-type-img" src="Images/MESO.png" alt="MESO">
+                    </label>
+                    <input class="form-check-input" type="radio" name="radioBodyType" id="endomorphInput" value="endomorphValue" hidden>
+                    <label class="form-check-label label-body-type" for="endomorphInput">
+                        <img class="body-type-img" src="Images/ENDO.png" alt="ENDO">
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+
+                </div>
+                <div class="form-check form-check-inline">
+
                 </div>
             </fieldset>
         </form>

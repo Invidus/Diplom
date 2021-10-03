@@ -142,6 +142,16 @@ li{
         display:none !important;
     }
 }
+
+@media screen and (max-width: 1000px) {
+    .select-height {
+        height: auto;
+    }
+    #fillFilds {
+        font-size: 20pt;
+    }
+}
+
 .alert {
     text-align: center !important;
 }

@@ -2,31 +2,63 @@
 <html lang="en">
 <head>
     <title>Authorization</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
     <?php
-        require('addHeadLinks.php');
-        $login = filter_var(trim($_POST['login']), FILTER_SANITIZE_STRING);
-        $pass = filter_var(trim($_POST['pass']), FILTER_SANITIZE_STRING);
-
-        $pass = md5($pass."iiwusascxzsdj777");
-
-        if (isset($_POST['login']) && isset($_POST['pass'])) {
-            require("connect.php");
-
-            $query = "select * from `users` where  `login` = '$login' and `password` = '$pass'";
-            $res = mysqli_query($link, $query);
-
-            $user = $res->fetch_assoc();
-            if (count($user) == 0) {
-                $errorUser = "Пользователь не найден";
-                exit();
-            }
-            // Установка куки польз-ля на одни сутки
-            setcookie('user', $user['fname'], time() + 3600 * 24, "/");
-            header('Location: http://localhost/Diplom/Diplom/index.php');
-            mysqli_close($link);
+    require('addHeadLinks.php');
+    require("connect.php");
+    function SiteVerify($url) {
+            $curl = curl_init();
+            curl_setopt($curl, CURLOPT_URL, $url);
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($curl, CURLOPT_TIMEOUT, 15);
+            curl_setopt($curl, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36");
+            $curlData = curl_exec($curl);
+            curl_close($curl);
+            return $curlData;
         }
+
+        if($_SERVER["REQUEST_METHOD"] == "POST")  {
+            $recaptcha=$_POST['g-recaptcha-response'];
+            if(!empty($recaptcha)) {
+                $google_url="https://www.google.com/recaptcha/api/siteverify";
+                $secret = '6Ld4PHkcAAAAACA0ZoRzR4SxI0R6d6Wp-uSIdC03';
+                $ip=$_SERVER['REMOTE_ADDR'];
+                $url=$google_url."?secret=".$secret."&response=".$recaptcha."&remoteip=".$ip;
+                $res=SiteVerify($url);
+                $res= json_decode($res, true);
+                if($res['success']) {
+
+                    $login = filter_var(trim($_POST['login']), FILTER_SANITIZE_STRING);
+                    $pass = filter_var(trim($_POST['pass']), FILTER_SANITIZE_STRING);
+                    $pass = md5($pass."iiwusascxzsdj777");
+
+                    if (isset($_POST['login']) && isset($_POST['pass'])) {
+
+                        $query = "select * from `users` where  `login` = '$login' and `pass` = '$pass'";
+
+                        $res = mysqli_query($link, $query);
+
+                        $user = $res->fetch_assoc();
+
+                        if (count($user) == 0) {
+    
+                            $errorUser = "Пользователь не найден";
+                            exit();
+                        }
+
+                        // Установка куки польз-ля на одни сутки
+                        setcookie('user', $user['fname'], time() + 3600 * 24, "/");
+
+                        header('Location: http://demon439.ru/userLK.php');
+                        mysqli_close($link);
+                    }
+                }
+
+            }
+        }
+
     ?>
 
     <div id="auth" class="auth-inputs">
@@ -66,6 +98,7 @@
             <input class="form-control" id="pass" name="pass" type="password" />
 
             <a class="open_window auth-link link1" href="#">Забыли пароль?</a>
+            <div class="g-recaptcha margin-5" data-sitekey="6Ld4PHkcAAAAAG7Ale3IF6GBptKOYu7cmILKBsjc"></div>
             <div class="link-center">
                 <button id = "logIn" type="submit" class="btn btn-primary">Войти</button>
                 <a href="registration.php" class="auth-link">Зарегистрироваться</a>
@@ -83,27 +116,7 @@
             </div>
         </form>
     </div>
-    <?php
-        session_start();
-        if (isset($_POST['loginRec']) && isset($_POST['emailRec'])) {
-            require("connect.php");
-            $loginRec = $_POST['loginRec'];
-            $emailRec = $_POST['emailRec'];
-            $query = "select password from `users` where  login = '$loginRec' and email = '$emailRec';";
-            $res = mysqli_query($link, $query);
 
-                while ($row = mysqli_fetch_array(($res))) {
-                    if (password_verify($pass, $row['password'])) {
-                        $_SESSION['login'] = $login;
-                        $successMsg = "Авторизация прошла успешно.";
-                        header('http://localhost/Diplom/Diplom/index.php');
-                    } else {
-                        $errorMsgWrongPass = "Неверный пароль";
-                    }
-                }
-            mysqli_close($link);
-        }
-    ?>
     <script>
         $('.popup .close_window, .overlay').click(function() {
             $('.popup, .overlay').css({
@@ -125,5 +138,10 @@
         })
     </script>
 </body>
+<style>
+    .margin-5 {
+        margin-top: 5px;
+    }
+</style>
 
 </html>
