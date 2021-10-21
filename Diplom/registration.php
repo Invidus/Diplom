@@ -89,8 +89,6 @@
                 
 
                 if (mysqli_num_rows($resu) > 0) {
-                    echo ' 12 ';
-
                     $errorMsgUse = 'Данный логин уже используется!';
                 } else {
                     
@@ -107,7 +105,7 @@
                         mysqli_query($link,"SET NAMES UTF8");
                         mysqli_query($link,"SET CHARACTER SET UTF8");
 
-                        $query = "Insert into `users` values('0','$fname','$lname','$surname','$email','$login','$pass')";
+                        $query = "Insert into `users` values('0','$fname','$lname','$surname','$email','$login','$pass',null,null,null,null)";
                         $result = mysqli_query($link, $query) or die("Error sql" . mysqli_error($link));
                         $queryLog = "Select id from `users` where login = '$login';";
                         $res = mysqli_query($link, $queryLog);

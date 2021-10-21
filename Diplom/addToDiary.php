@@ -15,7 +15,6 @@
         $result = mysqli_query($link, $query) or die("Error sql" . mysql_error($link));
         while ($row = mysqli_fetch_array($result)) {
             $id = $row[id];
-            echo "<script>alert(\"Данные успешно добавлены в дневник !" . "\");</script>";
             $query = "Insert into `calculations` values('0',$id,$fat,$protein,$carbh,$cal,'$date')";
             $result = mysqli_query($link, $query) or die("Error sql" . mysql_error($link));
             header('Refresh: 0; url = http://demon439.ru/userLK.php');
