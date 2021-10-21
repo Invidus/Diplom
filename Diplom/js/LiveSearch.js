@@ -89,7 +89,7 @@ $(function () {
         fatVar = ($(this).next().next().text() * gramm).toFixed(1);
         carbohydratesVar = ($(this).next().next().next().text() * gramm).toFixed(1);
         proteinVar = ($(this).next().text() * gramm).toFixed(1)
-        $(".search_result").fadeOut();
+        $(".search_result").fadeOut(0);
 
     })
     //Обработка при выборе обед
@@ -205,11 +205,7 @@ $("#addProductButton").on("click", function () {
             }
         } else { normal = "Введите все данные, чтобы получить полную статистику!!!" }
         $('#ref').clone(true).appendTo(".table_result").prop('disabled', true);
-        $("#Gramm").clone(true).appendTo(".table_result").prop('disabled', true);
-        $("#Protein").clone(true).appendTo(".table_result");
-        $("#Fat").clone(true).appendTo(".table_result");
-        $("#Carbohydrates").clone(true).appendTo(".table_result");
-        $("#Calories").clone(true).appendTo(".table_result");
+
 
         $("#result-protein").text("Белков, грамм: " + prot4);
         $("#result-fat").text("Жиров, грамм: " + fat4);
@@ -240,11 +236,7 @@ $("#addProductButton1").on("click", function () {
             }
         } else { normal = "Введите все данные, чтобы получить полную статистику!!!" }
         $('#ref1').clone(true).appendTo(".table_result1").prop('disabled', true);
-        $("#Gramm1").clone(true).appendTo(".table_result1").prop('disabled', true);
-        $("#Protein1").clone(true).appendTo(".table_result1");
-        $("#Fat1").clone(true).appendTo(".table_result1");
-        $("#Carbohydrates1").clone(true).appendTo(".table_result1");
-        $("#Calories1").clone(true).appendTo(".table_result1");
+
 
         $("#result-protein1").text("Белков, грамм: " + prot1);
         $("#result-fat1").text("Жиров, грамм: " + fat1);
@@ -275,11 +267,7 @@ $("#addProductButton2").on("click", function () {
             }
         } else { normal = "Введите все данные, чтобы получить полную статистику!!!" }
         $('#ref2').clone(true).appendTo(".table_result2").prop('disabled', true);
-        $("#Gramm2").clone(true).appendTo(".table_result2").prop('disabled', true);
-        $("#Protein2").clone(true).appendTo(".table_result2");
-        $("#Fat2").clone(true).appendTo(".table_result2");
-        $("#Carbohydrates2").clone(true).appendTo(".table_result2");
-        $("#Calories2").clone(true).appendTo(".table_result2");
+
 
         $("#result-protein2").text("Белков, грамм: " + prot2);
         $("#result-fat2").text("Жиров, грамм: " + fat2);

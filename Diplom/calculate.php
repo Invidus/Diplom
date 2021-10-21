@@ -8,12 +8,13 @@
     <link rel="shortcut icon" href="./Images/favicon.ico" type="image/x-icon">
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/CalculateTab.css">
+    <meta name="viewport" content="width=device-width; initial-scale=0.35; maximum-scale=0.95; user-scalable=0;" />    <meta name="viewport" content="width=device-width, initial-scale=1; user-scalable=0;">
 
 
 </head>
 
 <body>
-    <div style="width: 100%">
+    <div class="container">
         <?php
         include('nav.php');
         ?>
@@ -71,15 +72,15 @@
                 <div class="form-check form-check-inline type-body-grid body-type-div">
                     <input class="form-check-input" type="radio" name="radioBodyType" id="ectomorphInput" value="ectomorphValue" hidden>
                     <label class="form-check-label label-body-type" for="ectomorphInput">
-                        <img class="body-type-img" id="ectomorphImg" src="Images/Ecto.png" alt="Ecto">
+                        <img class="body-type-img" id="ectomorphImg" src="Images/Ec.png" alt="Ecto">
                     </label>
                     <input class="form-check-input" type="radio" name="radioBodyType" id="mesomorphInput" value="mesomorphValue" hidden>
                     <label class="form-check-label label-body-type" for="mesomorphInput">
-                        <img class="body-type-img" src="Images/MESO.png" alt="MESO">
+                        <img class="body-type-img" src="Images/mes.png" alt="MESO">
                     </label>
                     <input class="form-check-input" type="radio" name="radioBodyType" id="endomorphInput" value="endomorphValue" hidden>
                     <label class="form-check-label label-body-type" for="endomorphInput">
-                        <img class="body-type-img" src="Images/ENDO.png" alt="ENDO">
+                        <img class="body-type-img" src="Images/end.png" alt="ENDO">
                     </label>
                 </div>
                 <div class="form-check form-check-inline">
@@ -107,15 +108,15 @@
                 <legend>Счетчик потреблённых калорий (завтрак)</legend>
                 <div class="counter-block">
                     <div class="product-grid">
-                        <div><label for="ref" class="input-fields">Название продукта</label> <input autocomplete="off" class="input-fields form-control" id='ref' type="text" name="referal" placeholder="Начните вводить" /></div>
-                        <div><label for="Gramm" class="input-fields">Вес, грамм</label> <input autocomplete="off" class="input-fields form-control" id="Gramm" type="text" value="100" /></div>
-                        <div><label for="Protein" class="input-fields">Белков, грамм</label> <input class="input-fields form-control" id="Protein" type="text" disabled /></div>
-                        <div><label for="Fat" class="input-fields">Жиров, грамм</label> <input class="input-fields form-control" id="Fat" type="text" disabled /></div>
-                        <div><label for="Carbohydrates" class="input-fields">Углеводов, грамм</label> <input class="input-fields form-control" id="Carbohydrates" type="text" disabled /></div>
-                        <div><label for="Calories" class="input-fields">Калорий, ккал</label> <input class="input-fields form-control" id="Calories" type="text" disabled /></div>
+                        <div class="chr-grid"><label for="ref" class="input-fields">Название продукта</label> <input autocomplete="off" class="input-fields form-control" id='ref' type="text" name="referal" placeholder="Начните вводить" /></div>
+                        <div><ul class="search_result"></ul></div>
+                        <div class="chr-grid"><label for="Gramm" class="input-fields">Вес, грамм</label> <input autocomplete="off" class="input-fields form-control" id="Gramm" type="text" value="100" /></div>
+                        <div class="chr-grid"><label for="Protein" class="input-fields">Белков, грамм</label> <input class="input-fields form-control" id="Protein" type="text" disabled /></div>
+                        <div class="chr-grid"><label for="Fat" class="input-fields">Жиров, грамм</label> <input class="input-fields form-control" id="Fat" type="text" disabled /></div>
+                        <div class="chr-grid"><label for="Carbohydrates" class="input-fields">Углеводов, грамм</label> <input class="input-fields form-control" id="Carbohydrates" type="text" disabled /></div>
+                        <div class="chr-grid"><label for="Calories" class="input-fields">Калорий, ккал</label> <input class="input-fields form-control" id="Calories" type="text" disabled /></div>
                     </div>
                 </div>
-                <ul class="search_result"></ul>
                 <a id="addProductButton" class="addProduct-link" href="javascript:void(0);">+ Добавить продукт в список потребленных</a>
                 <br><br>
                 <h6 class="toHide">Список потребленных продуктов</h6>
@@ -145,15 +146,15 @@
                 <legend>Счетчик потреблённых калорий (Обед)</legend>
                 <div class="counter-block">
                     <div class="product-grid">
-                        <div><label for="ref1" class="input-fields">Название продукта</label> <input autocomplete="off" class="input-fields form-control" id='ref1' type="text" name="referal1" placeholder="Начните вводить" /></div>
-                        <div><label for="Gramm1" class="input-fields">Вес, грамм</label> <input autocomplete="off" class="input-fields form-control" id="Gramm1" type="text" value="100" /></div>
-                        <div><label for="Protein1" class="input-fields">Белков, грамм</label> <input class="input-fields form-control" id="Protein1" type="text" disabled /></div>
-                        <div><label for="Fat1" class="input-fields">Жиров, грамм</label> <input class="input-fields form-control" id="Fat1" type="text" disabled /></div>
-                        <div><label for="Carbohydrates1" class="input-fields">Углеводов, грамм</label> <input class="input-fields form-control" id="Carbohydrates1" type="text" disabled /></div>
-                        <div><label for="Calories1" class="input-fields">Калорий, ккал</label> <input class="input-fields form-control" id="Calories1" type="text" disabled /></div>
+                        <div class="chr-grid"><label for="ref1" class="input-fields">Название продукта</label> <input autocomplete="off" class="input-fields form-control" id='ref1' type="text" name="referal1" placeholder="Начните вводить" /></div>
+                        <div><ul class="search_result1"></ul></div>
+                        <div class="chr-grid"><label for="Gramm1" class="input-fields">Вес, грамм</label> <input autocomplete="off" class="input-fields form-control" id="Gramm1" type="text" value="100" /></div>
+                        <div class="chr-grid"><label for="Protein1" class="input-fields">Белков, грамм</label> <input class="input-fields form-control" id="Protein1" type="text" disabled /></div>
+                        <div class="chr-grid"><label for="Fat1" class="input-fields">Жиров, грамм</label> <input class="input-fields form-control" id="Fat1" type="text" disabled /></div>
+                        <div class="chr-grid"><label for="Carbohydrates1" class="input-fields">Углеводов, грамм</label> <input class="input-fields form-control" id="Carbohydrates1" type="text" disabled /></div>
+                        <div class="chr-grid"><label for="Calories1" class="input-fields">Калорий, ккал</label> <input class="input-fields form-control" id="Calories1" type="text" disabled /></div>
                     </div>
                 </div>
-                <ul class="search_result1"></ul>
                 <a id="addProductButton1" class="addProduct-link" href="javascript:void(0);">+ Добавить продукт в список потребленных</a>
                 <br><br>
                 <h6 class="toHide">Список потребленных продуктов</h6>
@@ -183,15 +184,15 @@
                 <legend>Счетчик потреблённых калорий (Ужин)</legend>
                 <div class="counter-block">
                     <div class="product-grid">
-                        <div><label for="ref2" class="input-fields">Название продукта</label> <input autocomplete="off" class="input-fields form-control" id='ref2' type="text" name="referal1" placeholder="Начните вводить" /></div>
-                        <div><label for="Gramm2" class="input-fields">Вес, грамм</label> <input autocomplete="off" class="input-fields form-control" id="Gramm2" type="text" value="100" /></div>
-                        <div><label for="Protein2" class="input-fields">Белков, грамм</label> <input class="input-fields form-control" id="Protein2" type="text" disabled /></div>
-                        <div><label for="Fat2" class="input-fields">Жиров, грамм</label> <input class="input-fields form-control" id="Fat2" type="text" disabled /></div>
-                        <div><label for="Carbohydrates2" class="input-fields">Углеводов, грамм</label> <input class="input-fields form-control" id="Carbohydrates2" type="text" disabled /></div>
-                        <div><label for="Calories2" class="input-fields">Калорий, ккал</label> <input class="input-fields form-control" id="Calories2" type="text" disabled /></div>
+                        <div class="chr-grid"><label for="ref2" class="input-fields">Название продукта</label> <input autocomplete="off" class="input-fields form-control" id='ref2' type="text" name="referal1" placeholder="Начните вводить" /></div>
+                        <div><ul class="search_result2"></ul></div>
+                        <div class="chr-grid"><label for="Gramm2" class="input-fields">Вес, грамм</label> <input autocomplete="off" class="input-fields form-control" id="Gramm2" type="text" value="100" /></div>
+                        <div class="chr-grid"><label for="Protein2" class="input-fields">Белков, грамм</label> <input class="input-fields form-control" id="Protein2" type="text" disabled /></div>
+                        <div class="chr-grid"><label for="Fat2" class="input-fields">Жиров, грамм</label> <input class="input-fields form-control" id="Fat2" type="text" disabled /></div>
+                        <div class="chr-grid"><label for="Carbohydrates2" class="input-fields">Углеводов, грамм</label> <input class="input-fields form-control" id="Carbohydrates2" type="text" disabled /></div>
+                        <div class="chr-grid"><label for="Calories2" class="input-fields">Калорий, ккал</label> <input class="input-fields form-control" id="Calories2" type="text" disabled /></div>
                     </div>
                 </div>
-                <ul class="search_result2"></ul>
                 <a id="addProductButton2" class="addProduct-link" href="javascript:void(0);">+ Добавить продукт в список потребленных</a>
                 <br><br>
                 <h6 class="toHide">Список потребленных продуктов</h6>
@@ -215,7 +216,7 @@
                     </div> -->
             </fieldset>
         </form>
-        <form class="input-group" method="POST">
+        <form class="input-group" action="addToDiary.php" method="POST">
             <fieldset class="field-set">
                 <legend>Итого за день</legend>
                 <div class="result_count3" hidden>
@@ -233,9 +234,6 @@
             </fieldset>
         </form>
     </div>
-    <?php
-    require('addToDiary.php');
-    ?>
     <?php
     include('footer.php');
     ?>

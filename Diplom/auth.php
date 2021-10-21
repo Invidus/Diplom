@@ -41,7 +41,6 @@
                         $res = mysqli_query($link, $query);
 
                         $user = $res->fetch_assoc();
-
                         if (count($user) == 0) {
     
                             $errorUser = "Пользователь не найден";
@@ -50,6 +49,7 @@
 
                         // Установка куки польз-ля на одни сутки
                         setcookie('user', $user['fname'], time() + 3600 * 24, "/");
+                        setcookie('login', $user['login'], time() + 3600 * 24, "/");
 
                         header('Location: http://demon439.ru/userLK.php');
                         mysqli_close($link);

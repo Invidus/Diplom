@@ -15,6 +15,153 @@ function calculateIndexM() { //Расчет индекса массы тела
         document.getElementById('normalC').innerText = carbohydrates.toFixed(1);
         document.getElementById('normalF').innerText = fat.toFixed(1);
     }
+    // function PFClow(weight) { // Расчеты бжу для понижения веса и сидячего образа жизни
+    //     if (weight >= 50 && weight <= 60) {  // От 50 до 60
+    //         var p = document.getElementById("normalP");
+    //         var c = document.getElementById("normalC");
+    //         var f = document.getElementById("normalF");
+    //         fat = 30;
+    //         carboh = 120;
+    //         prot = 140;
+    //         p.innerHTML = prot;
+    //         c.innerHTML = carboh;
+    //         f.innerHTML = fat;
+    //     } else {
+    //         if (weight >= 60 && weight <= 70) {
+    //             var p = document.getElementById("normalP");
+    //             var c = document.getElementById("normalC");
+    //             var f = document.getElementById("normalF");
+    //             prot = 150;
+    //             carboh = 150;
+    //             fat = 35;
+    //             p.innerHTML = prot;
+    //             c.innerHTML = carboh;
+    //             f.innerHTML = fat;
+    //         } else {
+    //             if (weight >= 70 && weight <= 80) {
+    //                 var p = document.getElementById("normalP");
+    //                 var c = document.getElementById("normalC");
+    //                 var f = document.getElementById("normalF");
+    //                 prot = 165;
+    //                 carboh = 170;
+    //                 fat = 35;
+    //                 p.innerHTML = prot;
+    //                 c.innerHTML = carboh;
+    //                 f.innerHTML = fat;
+    //             } else {
+    //                 if (weight >= 80) {
+    //                     var p = document.getElementById("normalP");
+    //                     var f = document.getElementById("normalF");
+    //                     var c = document.getElementById("normalC");
+    //                     prot = 175;
+    //                     carboh = 150;
+    //                     fat = 40;
+    //                     p.innerHTML = prot;
+    //                     c.innerHTML = carboh;
+    //                     f.innerHTML = fat;
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
+    // function PFCmid(weight) { // Расчеты бжу для понижения веса и сидячего образа жизни
+    //     if (weight >= 50 && weight <= 60) {
+    //         var p = document.getElementById("normalP");
+    //         var c = document.getElementById("normalC");
+    //         var f = document.getElementById("normalF");
+    //         fat = 45;
+    //         carboh = 150;
+    //         prot = 115;
+    //         p.innerHTML = prot;
+    //         c.innerHTML = carboh;
+    //         f.innerHTML = fat;
+    //     } else {
+    //         if (weight >= 60 && weight <= 70) {
+    //             var p = document.getElementById("normalP");
+    //             var c = document.getElementById("normalC");
+    //             var f = document.getElementById("normalF");
+    //             prot = 125;
+    //             carboh = 190;
+    //             fat = 50;
+    //             p.innerHTML = prot;
+    //             c.innerHTML = carboh;
+    //             f.innerHTML = fat;
+    //         } else {
+    //             if (weight >= 70 && weight <= 80) {
+    //                 var p = document.getElementById("normalP");
+    //                 var c = document.getElementById("normalC");
+    //                 var f = document.getElementById("normalF");
+    //                 prot = 135;
+    //                 carboh = 200;
+    //                 fat = 50;
+    //                 p.innerHTML = prot;
+    //                 c.innerHTML = carboh;
+    //                 f.innerHTML = fat;
+    //             } else {
+    //                 if (weight >= 80) {
+    //                     var p = document.getElementById("normalP");
+    //                     var f = document.getElementById("normalF");
+    //                     var c = document.getElementById("normalC");
+    //                     prot = 145;
+    //                     carboh = 220;
+    //                     fat = 55;
+    //                     p.innerHTML = prot;
+    //                     c.innerHTML = carboh;
+    //                     f.innerHTML = fat;
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
+    // function PFChigh(weight) { // Расчеты бжу для понижения веса и сидячего образа жизни
+    //     if (weight >= 50 && weight <= 60) {
+    //         var p = document.getElementById("normalP");
+    //         var c = document.getElementById("normalC");
+    //         var f = document.getElementById("normalF");
+    //         fat = 60;
+    //         carboh = 200;
+    //         prot = 155;
+    //         p.innerHTML = prot;
+    //         c.innerHTML = carboh;
+    //         f.innerHTML = fat;
+    //     } else {
+    //         if (weight >= 60 && weight <= 70) {
+    //             var p = document.getElementById("normalP");
+    //             var c = document.getElementById("normalC");
+    //             var f = document.getElementById("normalF");
+    //             prot = 165;
+    //             carboh = 245;
+    //             fat = 60;
+    //             p.innerHTML = prot;
+    //             c.innerHTML = carboh;
+    //             f.innerHTML = fat;
+    //         } else {
+    //             if (weight >= 70 && weight <= 80) {
+    //                 var p = document.getElementById("normalP");
+    //                 var c = document.getElementById("normalC");
+    //                 var f = document.getElementById("normalF");
+    //                 prot = 175;
+    //                 carboh = 260;
+    //                 fat = 65;
+    //                 p.innerHTML = prot;
+    //                 c.innerHTML = carboh;
+    //                 f.innerHTML = fat;
+    //             } else {
+    //                 if (weight >= 80) {
+    //                     var p = document.getElementById("normalP");
+    //                     var f = document.getElementById("normalF");
+    //                     var c = document.getElementById("normalC");
+    //                     prot = 185;
+    //                     carboh = 240;
+    //                     fat = 70;
+    //                     p.innerHTML = prot;
+    //                     c.innerHTML = carboh;
+    //                     f.innerHTML = fat;
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
 
 
     if (document.getElementById("W").checked) {
