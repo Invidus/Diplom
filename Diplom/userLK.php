@@ -23,6 +23,7 @@
 require_once('loadCharacteristcs.php');
 ?>
     <div class="container">
+        <br/>
         <a class="cancel" href="index.php"><i>
                 <- Назад</i> </a> <div class="lkgrid">
                     <h5>Дневник,

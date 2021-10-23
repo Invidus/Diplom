@@ -17,15 +17,16 @@
     <div class="container">
         <?php
         include('nav.php');
+        require('loadCharacteristcs.php')
         ?>
         <form class="input-group">
             <fieldset class="field-set">
                 <legend>Пол</legend>
                 <label class="radio-inline">
-                    <input type="radio" name="optradio" id="M" onChange="calculateIndexM()"> Мужчина
+                    <input type="radio" name="sexRadio" id="M" value="1" onChange="calculateIndexM()" checked> Мужчина
                 </label>
                 <label class="radio-inline">
-                    <input type="radio" name="optradio" id="W" onChange="calculateIndexM()" /> Женщина
+                    <input type="radio" name="sexRadio" id="W" value="2" onChange="calculateIndexM()" /> Женщина
                 </label>
             </fieldset>
         </form>
@@ -59,9 +60,9 @@
                 <legend>Характеристики</legend>
 
                 <div class="chr-grid">
-                    <input type="text" class="input-fields form-control" name="height" id="height" onChange="calculateIndexM()" placeholder="Рост, см"/>
-                    <input type="text" class="input-fields form-control" name="weight" id="weight" onChange="calculateIndexM()" placeholder="Вес, кг"/>
-                    <input type="text" class="input-fields form-control" name="age" id="age" onChange="calculateIndexM()" placeholder="Возраст"/>
+                    <input type="text" class="input-fields form-control" name="height" id="height" onChange="calculateIndexM()" placeholder="Рост, см" value="<?php if (!empty($_COOKIE['user'])) {echo $height;}   ?>"/>
+                    <input type="text" class="input-fields form-control" name="weight" id="weight" onChange="calculateIndexM()" placeholder="Вес, кг" value="<?php if (!empty($_COOKIE['user'])) {echo $weight;}   ?>"/>
+                    <input type="text" class="input-fields form-control" name="age" id="age" onChange="calculateIndexM()" placeholder="Возраст" value="<?php if (!empty($_COOKIE['user'])) {echo $age;}  ?>"/>
                 </div>
             </fieldset>
         </form>
@@ -239,6 +240,13 @@
     ?>
     <script src="./js/Calculations.js"></script>
     <script src="./js/LiveSearch.js"></script>
+    <script>
+        if ('<?php echo $sex ?>' == 1) {
+            document.getElementById('M').checked = true;
+        } else if ('<?php echo $sex ?>' == 2) {
+            document.getElementById('W').checked = true;
+        }
+    </script>
 </body>
 
 </html>

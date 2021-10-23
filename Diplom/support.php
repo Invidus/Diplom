@@ -16,8 +16,8 @@
 </head>
 
 <body>
-    <div class="registration-inputs">
-        <form method="POST" action="support.php">
+    <div class="container">
+        <form method="POST" action="sendSupport.php">
             <h6><a class="cancel" href="index.php"><i>
                         <- Назад</i> </a> </h6> <h4 class="reg-lable"><i>Поддержка</i></h4>
                             <label for="fname">Имя</label>
@@ -26,64 +26,14 @@
                             <input class="form-control" id="email" name="email" type="text" />
                             <textarea class="textarea-support form-control" name="msg" id="msg" cols="40" rows="10" placeholder="Опишите вашу проблему"></textarea>
                             <button type="submit" class="btn btn-primary">Отправить письмо</button>
-
         </form>
     </div>
-    <?
-    $fname = $_POST['fname'];
-    $msg = $_POST['msg'];
-    $email = $_POST['email'];
-
-    // Очистка от Html и php тегов
-    function clearing($value)
-    {
-        $value = trim($value);
-        $value = stripslashes($value);
-        $value = strip_tags($value);
-        $value = htmlspecialchars($value);
-        return $value;
+<script>
+    if ('<?php echo empty($_COOKIE['user']) ?>' ) {
+        alert('Для начала войдите в свой профиль!');
+        location.replace("http://demon439.ru/auth.php");
     }
-
-    // Проверка длины введенных данных
-    function check_length($value, $min, $max)
-    {
-        $result = (mb_strlen($value) < $min || mb_strlen($value) > $max);
-        return !$result;
-    }
-
-    // Проверка на незаполненные поля
-    if (
-        !empty($fname) && !empty($msg) && !empty($email)
-    ) {
-
-        if (
-            check_length($fname, 2, 25) && check_length($msg, 2, 250) &&
-            check_length($email, 2, 80)
-
-        ) {
-
-            require("connect.php");
-
-            $fnameBD = htmlentities(mysqli_real_escape_string($link, $_POST['fname']));
-            $msgBD = htmlentities(mysqli_real_escape_string($link, $_POST['msg']));
-            $emailBD = htmlentities(mysqli_real_escape_string($link, $_POST['email']));
-
-            // Внесение данных в БД
-            $query = "Update `support` set msg = '$msgBD' where name = '$fnameBD'  and email = '$emailBD'";
-            $result = mysqli_query($link, $query) or die("Error sql" . mysql_error($link));
-            if ($result) {
-                echo ("<script>alert('Ваше письмо было отправлено администации сайта.');</script>");
-                header('Refresh: 0.3;url = http://localhost:85/Diplom/index.php');
-            }
-            mysqli_close($link);
-
-            // Внесение данных в БД
-
-        } else {
-            echo ("<script>alert('Введена неверная длина одного из полей!');</script>");
-        }
-    }
-    ?>
+</script>
 </body>
 
 </html>
